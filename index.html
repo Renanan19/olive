@@ -1,0 +1,1713 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>L'Or Vert — Etude de March&eacute; Huile d'Olive 2026</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Serif+Display:ital@0;1&family=Space+Mono:wght@400;700&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <style>
+        /* ========================================
+           70s DESIGN SYSTEM — OLIVE OIL EDITION
+           ======================================== */
+
+        :root {
+            /* --- Palette 70s --- */
+            --avocado:        #6B8E23;
+            --avocado-dark:   #4A6314;
+            --harvest-gold:   #DAA520;
+            --burnt-orange:   #CC5500;
+            --burnt-sienna:   #A0522D;
+            --terracotta:     #C2724F;
+            --olive-brown:    #5C4033;
+            --cream:          #FFF8E7;
+            --parchment:      #F5E6C8;
+            --warm-white:     #FEFCF3;
+            --deep-brown:     #3B2314;
+            --mustard:        #E4A010;
+            --sage:           #9CAF88;
+            --olive-green:    #556B2F;
+            --rust:           #B7410E;
+
+            /* --- Typo --- */
+            --font-display: 'DM Serif Display', serif;
+            --font-body: 'Libre Baskerville', serif;
+            --font-mono: 'Space Mono', monospace;
+
+            /* --- Spacing 8px grid --- */
+            --sp-1: 8px;
+            --sp-2: 16px;
+            --sp-3: 24px;
+            --sp-4: 32px;
+            --sp-5: 40px;
+            --sp-6: 48px;
+            --sp-8: 64px;
+            --sp-10: 80px;
+            --sp-12: 96px;
+            --sp-16: 128px;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        html {
+            scroll-behavior: smooth;
+            font-size: 18px;
+        }
+
+        body {
+            font-family: var(--font-body);
+            background: var(--cream);
+            color: var(--deep-brown);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        /* --- 70s TEXTURE BACKGROUND --- */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23DAA520' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        /* --- LAYOUT --- */
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 var(--sp-4);
+            position: relative;
+            z-index: 1;
+        }
+
+        /* ========================================
+           NAVIGATION
+           ======================================== */
+        nav {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: var(--deep-brown);
+            border-bottom: 4px solid var(--harvest-gold);
+            padding: var(--sp-2) 0;
+        }
+
+        nav .container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: var(--sp-2);
+        }
+
+        nav .logo {
+            font-family: var(--font-display);
+            font-size: 1.4rem;
+            color: var(--harvest-gold);
+            text-decoration: none;
+            letter-spacing: 2px;
+        }
+
+        nav .nav-links {
+            display: flex;
+            gap: var(--sp-3);
+            list-style: none;
+            flex-wrap: wrap;
+        }
+
+        nav .nav-links a {
+            color: var(--parchment);
+            text-decoration: none;
+            font-family: var(--font-mono);
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: color 0.3s;
+            padding: var(--sp-1) 0;
+        }
+
+        nav .nav-links a:hover {
+            color: var(--harvest-gold);
+        }
+
+        /* ========================================
+           HERO
+           ======================================== */
+        .hero {
+            background: linear-gradient(135deg, var(--olive-brown) 0%, var(--deep-brown) 50%, var(--avocado-dark) 100%);
+            padding: var(--sp-16) 0 var(--sp-12);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%; left: -50%;
+            width: 200%; height: 200%;
+            background: repeating-conic-gradient(
+                from 0deg,
+                transparent 0deg 8deg,
+                rgba(218,165,32,0.06) 8deg 10deg
+            );
+            animation: slowSpin 120s linear infinite;
+        }
+
+        @keyframes slowSpin {
+            to { transform: rotate(360deg); }
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: -2px; left: 0; right: 0;
+            height: 60px;
+            background: url("data:image/svg+xml,%3Csvg viewBox='0 0 1200 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 60 C200 0 400 0 600 60 C800 0 1000 0 1200 60 L1200 60 L0 60Z' fill='%23FFF8E7'/%3E%3C/svg%3E") no-repeat bottom center;
+            background-size: cover;
+        }
+
+        .hero h1 {
+            font-family: var(--font-display);
+            font-size: clamp(2.8rem, 7vw, 5.5rem);
+            color: var(--harvest-gold);
+            position: relative;
+            z-index: 1;
+            line-height: 1.1;
+            margin-bottom: var(--sp-3);
+            text-shadow: 3px 3px 0 rgba(0,0,0,0.3);
+        }
+
+        .hero .subtitle {
+            font-family: var(--font-display);
+            font-style: italic;
+            font-size: clamp(1.1rem, 2.5vw, 1.6rem);
+            color: var(--parchment);
+            position: relative;
+            z-index: 1;
+            opacity: 0.9;
+            margin-bottom: var(--sp-5);
+        }
+
+        .hero .badge-row {
+            display: flex;
+            justify-content: center;
+            gap: var(--sp-3);
+            flex-wrap: wrap;
+            position: relative;
+            z-index: 1;
+        }
+
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: var(--sp-1);
+            background: rgba(255,248,231,0.12);
+            border: 1px solid var(--harvest-gold);
+            border-radius: 50px;
+            padding: var(--sp-1) var(--sp-3);
+            color: var(--parchment);
+            font-family: var(--font-mono);
+            font-size: 0.65rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            backdrop-filter: blur(4px);
+        }
+
+        /* ========================================
+           SECTION STYLES
+           ======================================== */
+        section {
+            padding: var(--sp-10) 0;
+            position: relative;
+            z-index: 1;
+        }
+
+        section:nth-child(even) {
+            background: var(--parchment);
+        }
+
+        section:nth-child(odd) {
+            background: var(--cream);
+        }
+
+        /* --- Section Headers --- */
+        .section-header {
+            text-align: center;
+            margin-bottom: var(--sp-8);
+        }
+
+        .section-number {
+            font-family: var(--font-display);
+            font-size: 4rem;
+            color: var(--harvest-gold);
+            opacity: 0.3;
+            line-height: 1;
+            display: block;
+        }
+
+        .section-header h2 {
+            font-family: var(--font-display);
+            font-size: clamp(1.8rem, 4vw, 2.8rem);
+            color: var(--olive-brown);
+            line-height: 1.2;
+            margin-bottom: var(--sp-2);
+        }
+
+        .section-header .section-line {
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--harvest-gold), var(--burnt-orange));
+            margin: var(--sp-2) auto;
+            border-radius: 2px;
+        }
+
+        .section-header p {
+            font-style: italic;
+            color: var(--terracotta);
+            max-width: 600px;
+            margin: 0 auto;
+            font-size: 0.95rem;
+        }
+
+        /* --- 70s DECORATIVE DIVIDER --- */
+        .divider-70s {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: var(--sp-2);
+            margin: var(--sp-6) 0;
+        }
+
+        .divider-70s::before,
+        .divider-70s::after {
+            content: '';
+            flex: 1;
+            max-width: 200px;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--harvest-gold), transparent);
+        }
+
+        .divider-70s .diamond {
+            width: 12px; height: 12px;
+            background: var(--harvest-gold);
+            transform: rotate(45deg);
+        }
+
+        /* ========================================
+           KEY FIGURES — CIRCLES (70s style)
+           ======================================== */
+        .key-figures {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: var(--sp-4);
+            margin: var(--sp-6) 0;
+        }
+
+        .key-figure {
+            text-align: center;
+            padding: var(--sp-5) var(--sp-3);
+            background: var(--warm-white);
+            border: 3px solid var(--harvest-gold);
+            border-radius: 50%;
+            aspect-ratio: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 6px 6px 0 var(--olive-brown);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .key-figure:hover {
+            transform: translate(-3px, -3px);
+            box-shadow: 9px 9px 0 var(--olive-brown);
+        }
+
+        .key-figure .value {
+            font-family: var(--font-display);
+            font-size: 1.6rem;
+            color: var(--burnt-orange);
+            line-height: 1.1;
+        }
+
+        .key-figure .label {
+            font-family: var(--font-mono);
+            font-size: 0.6rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--olive-brown);
+            margin-top: var(--sp-1);
+            line-height: 1.3;
+        }
+
+        /* ========================================
+           TABLES — 70s retro style
+           ======================================== */
+        .table-wrapper {
+            overflow-x: auto;
+            margin: var(--sp-4) 0;
+            border-radius: 12px;
+            box-shadow: 4px 4px 0 var(--olive-brown);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.85rem;
+        }
+
+        thead {
+            background: var(--deep-brown);
+        }
+
+        thead th {
+            color: var(--harvest-gold);
+            font-family: var(--font-mono);
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            padding: var(--sp-2) var(--sp-2);
+            text-align: left;
+            border-bottom: 3px solid var(--harvest-gold);
+        }
+
+        tbody tr {
+            background: var(--warm-white);
+            transition: background 0.2s;
+        }
+
+        tbody tr:nth-child(even) {
+            background: var(--parchment);
+        }
+
+        tbody tr:hover {
+            background: rgba(218,165,32,0.15);
+        }
+
+        tbody td {
+            padding: var(--sp-2);
+            border-bottom: 1px solid rgba(92,64,51,0.15);
+            vertical-align: top;
+        }
+
+        tbody td:first-child {
+            font-weight: 700;
+            color: var(--olive-brown);
+        }
+
+        /* ========================================
+           CARDS — 70s rounded style
+           ======================================== */
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: var(--sp-4);
+            margin: var(--sp-5) 0;
+        }
+
+        .card {
+            background: var(--warm-white);
+            border: 2px solid var(--olive-brown);
+            border-radius: 16px;
+            padding: var(--sp-4);
+            box-shadow: 4px 4px 0 var(--olive-brown);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .card:hover {
+            transform: translate(-2px, -2px);
+            box-shadow: 6px 6px 0 var(--olive-brown);
+        }
+
+        .card h3 {
+            font-family: var(--font-display);
+            font-size: 1.3rem;
+            color: var(--burnt-orange);
+            margin-bottom: var(--sp-2);
+        }
+
+        .card p {
+            font-size: 0.85rem;
+            line-height: 1.6;
+        }
+
+        .card .card-tag {
+            display: inline-block;
+            background: var(--avocado);
+            color: white;
+            font-family: var(--font-mono);
+            font-size: 0.6rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            padding: 2px 12px;
+            border-radius: 50px;
+            margin-bottom: var(--sp-2);
+        }
+
+        /* ========================================
+           SEGMENT STRIPS — 70s color blocks
+           ======================================== */
+        .segment-strip {
+            display: grid;
+            grid-template-columns: 120px 1fr;
+            gap: 0;
+            margin: var(--sp-4) 0;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 4px 4px 0 var(--olive-brown);
+        }
+
+        .segment-strip .strip-label {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: var(--sp-3);
+            font-family: var(--font-display);
+            font-size: 1rem;
+            color: white;
+            text-align: center;
+            writing-mode: vertical-lr;
+            text-orientation: mixed;
+            transform: rotate(180deg);
+        }
+
+        .segment-strip .strip-content {
+            padding: var(--sp-4);
+            background: var(--warm-white);
+        }
+
+        .segment-strip .strip-content h3 {
+            font-family: var(--font-display);
+            font-size: 1.4rem;
+            margin-bottom: var(--sp-1);
+        }
+
+        .segment-strip .strip-content .price-range {
+            font-family: var(--font-mono);
+            font-size: 0.8rem;
+            color: var(--burnt-orange);
+            margin-bottom: var(--sp-2);
+        }
+
+        .segment-strip .strip-content ul {
+            padding-left: var(--sp-3);
+            font-size: 0.85rem;
+        }
+
+        .segment-strip .strip-content ul li {
+            margin-bottom: var(--sp-1);
+        }
+
+        .strip-bas { background: var(--sage); }
+        .strip-milieu { background: var(--avocado); }
+        .strip-haut { background: var(--burnt-orange); }
+        .strip-ultra { background: var(--deep-brown); }
+
+        /* ========================================
+           PULL QUOTES — 70s groovy
+           ======================================== */
+        .pullquote {
+            background: linear-gradient(135deg, var(--olive-brown), var(--deep-brown));
+            color: var(--parchment);
+            padding: var(--sp-6) var(--sp-5);
+            border-radius: 20px;
+            margin: var(--sp-6) 0;
+            text-align: center;
+            position: relative;
+            box-shadow: 6px 6px 0 var(--harvest-gold);
+        }
+
+        .pullquote::before {
+            content: '\201C';
+            font-family: var(--font-display);
+            font-size: 6rem;
+            color: var(--harvest-gold);
+            position: absolute;
+            top: -10px; left: 30px;
+            line-height: 1;
+            opacity: 0.5;
+        }
+
+        .pullquote p {
+            font-family: var(--font-display);
+            font-style: italic;
+            font-size: clamp(1.1rem, 2.5vw, 1.5rem);
+            line-height: 1.4;
+            position: relative;
+            z-index: 1;
+        }
+
+        .pullquote cite {
+            display: block;
+            margin-top: var(--sp-2);
+            font-family: var(--font-mono);
+            font-size: 0.7rem;
+            font-style: normal;
+            color: var(--harvest-gold);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        /* ========================================
+           STAT BARS — 70s horizontal
+           ======================================== */
+        .stat-bar-group {
+            margin: var(--sp-4) 0;
+        }
+
+        .stat-bar {
+            margin-bottom: var(--sp-2);
+        }
+
+        .stat-bar .stat-label {
+            display: flex;
+            justify-content: space-between;
+            font-family: var(--font-mono);
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 4px;
+            color: var(--olive-brown);
+        }
+
+        .stat-bar .bar-track {
+            height: 28px;
+            background: var(--parchment);
+            border-radius: 14px;
+            border: 2px solid var(--olive-brown);
+            overflow: hidden;
+        }
+
+        .stat-bar .bar-fill {
+            height: 100%;
+            border-radius: 12px;
+            background: linear-gradient(90deg, var(--avocado), var(--harvest-gold));
+            transition: width 1s ease-out;
+        }
+
+        /* ========================================
+           TREND TAGS
+           ======================================== */
+        .trend-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: var(--sp-2);
+            justify-content: center;
+            margin: var(--sp-4) 0;
+        }
+
+        .trend-tag {
+            background: var(--deep-brown);
+            color: var(--harvest-gold);
+            font-family: var(--font-mono);
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            padding: var(--sp-1) var(--sp-3);
+            border-radius: 50px;
+            border: 2px solid var(--harvest-gold);
+        }
+
+        /* ========================================
+           RISK MATRIX
+           ======================================== */
+        .risk-card {
+            display: flex;
+            gap: var(--sp-3);
+            align-items: flex-start;
+            background: var(--warm-white);
+            border-left: 5px solid var(--rust);
+            border-radius: 0 12px 12px 0;
+            padding: var(--sp-3);
+            margin-bottom: var(--sp-2);
+            box-shadow: 3px 3px 0 rgba(92,64,51,0.2);
+        }
+
+        .risk-card .risk-icon {
+            flex-shrink: 0;
+            width: 44px; height: 44px;
+            background: var(--rust);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-family: var(--font-display);
+            font-size: 1.2rem;
+        }
+
+        .risk-card .risk-body h4 {
+            font-family: var(--font-display);
+            font-size: 1rem;
+            color: var(--deep-brown);
+        }
+
+        .risk-card .risk-body p {
+            font-size: 0.8rem;
+            color: var(--olive-brown);
+        }
+
+        .risk-card .risk-badges {
+            display: flex;
+            gap: var(--sp-1);
+            margin-top: 4px;
+        }
+
+        .risk-badge {
+            font-family: var(--font-mono);
+            font-size: 0.55rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            padding: 2px 8px;
+            border-radius: 50px;
+            border: 1px solid;
+        }
+
+        .risk-high { background: #f8d7da; color: var(--rust); border-color: var(--rust); }
+        .risk-medium { background: #fff3cd; color: #856404; border-color: #856404; }
+        .risk-low { background: #d4edda; color: var(--avocado-dark); border-color: var(--avocado-dark); }
+
+        /* ========================================
+           FOOTER — 70s
+           ======================================== */
+        footer {
+            background: var(--deep-brown);
+            color: var(--parchment);
+            padding: var(--sp-8) 0 var(--sp-4);
+            text-align: center;
+            position: relative;
+        }
+
+        footer::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 6px;
+            background: repeating-linear-gradient(
+                90deg,
+                var(--harvest-gold) 0 20px,
+                var(--burnt-orange) 20px 40px,
+                var(--avocado) 40px 60px,
+                var(--terracotta) 60px 80px
+            );
+        }
+
+        footer h3 {
+            font-family: var(--font-display);
+            font-size: 1.5rem;
+            color: var(--harvest-gold);
+            margin-bottom: var(--sp-3);
+        }
+
+        footer p {
+            font-size: 0.8rem;
+            line-height: 1.8;
+            max-width: 700px;
+            margin: 0 auto var(--sp-2);
+            opacity: 0.8;
+        }
+
+        footer .source-list {
+            font-family: var(--font-mono);
+            font-size: 0.6rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--sage);
+            max-width: 800px;
+            margin: var(--sp-4) auto 0;
+            line-height: 2;
+        }
+
+        footer .copyright {
+            margin-top: var(--sp-6);
+            font-family: var(--font-mono);
+            font-size: 0.6rem;
+            opacity: 0.5;
+        }
+
+        /* ========================================
+           RESPONSIVE
+           ======================================== */
+        @media (max-width: 768px) {
+            html { font-size: 16px; }
+
+            .key-figure {
+                border-radius: 16px;
+                aspect-ratio: auto;
+                padding: var(--sp-3);
+            }
+
+            .segment-strip {
+                grid-template-columns: 1fr;
+            }
+
+            .segment-strip .strip-label {
+                writing-mode: horizontal-tb;
+                transform: none;
+                padding: var(--sp-2);
+            }
+
+            nav .nav-links {
+                gap: var(--sp-2);
+            }
+
+            .hero { padding: var(--sp-10) 0 var(--sp-8); }
+        }
+
+        /* ========================================
+           PROSE — body text
+           ======================================== */
+        .prose {
+            max-width: 780px;
+            margin: 0 auto;
+        }
+
+        .prose h3 {
+            font-family: var(--font-display);
+            font-size: 1.4rem;
+            color: var(--olive-brown);
+            margin: var(--sp-5) 0 var(--sp-2);
+        }
+
+        .prose h4 {
+            font-family: var(--font-display);
+            font-size: 1.1rem;
+            color: var(--burnt-orange);
+            margin: var(--sp-4) 0 var(--sp-2);
+        }
+
+        .prose p {
+            margin-bottom: var(--sp-3);
+            font-size: 0.9rem;
+        }
+
+        .prose ul, .prose ol {
+            padding-left: var(--sp-4);
+            margin-bottom: var(--sp-3);
+            font-size: 0.9rem;
+        }
+
+        .prose li {
+            margin-bottom: var(--sp-1);
+        }
+
+        .prose strong {
+            color: var(--olive-brown);
+        }
+
+        /* --- Flower divider (70s) --- */
+        .flower-divider {
+            text-align: center;
+            margin: var(--sp-6) 0;
+            font-size: 1.5rem;
+            color: var(--harvest-gold);
+            opacity: 0.5;
+            letter-spacing: 12px;
+        }
+
+        /* --- AOP Grid --- */
+        .aop-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: var(--sp-3);
+            margin: var(--sp-4) 0;
+        }
+
+        .aop-card {
+            background: linear-gradient(135deg, var(--warm-white) 0%, var(--parchment) 100%);
+            border: 2px solid var(--avocado);
+            border-radius: 12px;
+            padding: var(--sp-3);
+            text-align: center;
+            box-shadow: 3px 3px 0 rgba(85,107,47,0.3);
+        }
+
+        .aop-card h4 {
+            font-family: var(--font-display);
+            font-size: 1.1rem;
+            color: var(--avocado-dark);
+            margin-bottom: 4px;
+        }
+
+        .aop-card .aop-region {
+            font-family: var(--font-mono);
+            font-size: 0.6rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--terracotta);
+        }
+
+        .aop-card .aop-variety {
+            font-size: 0.8rem;
+            font-style: italic;
+            color: var(--olive-brown);
+            margin-top: var(--sp-1);
+        }
+
+        .aop-card .aop-profile {
+            font-size: 0.75rem;
+            color: var(--sage);
+            margin-top: 4px;
+        }
+
+        /* Summary table special */
+        .summary-table thead th {
+            font-size: 0.6rem;
+            padding: var(--sp-1) var(--sp-2);
+        }
+
+        .summary-table tbody td {
+            font-size: 0.8rem;
+            padding: var(--sp-1) var(--sp-2);
+            text-align: center;
+        }
+
+        .summary-table tbody td:first-child {
+            text-align: left;
+        }
+
+        /* Highlight box */
+        .highlight-box {
+            background: linear-gradient(90deg, var(--avocado), var(--olive-green));
+            color: white;
+            padding: var(--sp-4);
+            border-radius: 12px;
+            margin: var(--sp-4) 0;
+            box-shadow: 4px 4px 0 var(--deep-brown);
+        }
+
+        .highlight-box h4 {
+            font-family: var(--font-display);
+            font-size: 1.2rem;
+            color: var(--harvest-gold);
+            margin-bottom: var(--sp-2);
+        }
+
+        .highlight-box ul {
+            padding-left: var(--sp-3);
+            font-size: 0.85rem;
+        }
+
+        .highlight-box li {
+            margin-bottom: var(--sp-1);
+        }
+
+        /* numbered list */
+        .takeaway-list {
+            counter-reset: takeaway;
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .takeaway-list li {
+            counter-increment: takeaway;
+            padding: var(--sp-3);
+            padding-left: var(--sp-8);
+            position: relative;
+            background: var(--warm-white);
+            border-radius: 12px;
+            margin-bottom: var(--sp-2);
+            border: 1px solid rgba(92,64,51,0.15);
+            font-size: 0.9rem;
+        }
+
+        .takeaway-list li::before {
+            content: counter(takeaway);
+            position: absolute;
+            left: var(--sp-2);
+            top: 50%;
+            transform: translateY(-50%);
+            width: 32px; height: 32px;
+            background: var(--harvest-gold);
+            color: var(--deep-brown);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: var(--font-display);
+            font-size: 1.1rem;
+            font-weight: 700;
+        }
+
+        /* Animated entrance */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+
+<!-- ============ NAVIGATION ============ -->
+<nav>
+    <div class="container">
+        <a href="#" class="logo">L'Or Vert</a>
+        <ul class="nav-links">
+            <li><a href="#mondial">Mondial</a></li>
+            <li><a href="#europe">Europe</a></li>
+            <li><a href="#france">France</a></li>
+            <li><a href="#segments">Segments</a></li>
+            <li><a href="#international">International</a></li>
+            <li><a href="#tendances">Tendances</a></li>
+            <li><a href="#opportunites">Opportunit&eacute;s</a></li>
+            <li><a href="#synthese">Synth&egrave;se</a></li>
+        </ul>
+    </div>
+</nav>
+
+<!-- ============ HERO ============ -->
+<header class="hero">
+    <div class="container">
+        <h1>Huile d'Olive</h1>
+        <p class="subtitle">Etude de march&eacute; &mdash; France &middot; Europe &middot; International</p>
+        <div class="badge-row">
+            <span class="badge">Avril 2026</span>
+            <span class="badge">Bas &middot; Moyen &middot; Haut de gamme</span>
+            <span class="badge">COI &middot; FranceAgriMer &middot; Fortune BI</span>
+        </div>
+    </div>
+</header>
+
+<!-- ============ RESUME EXECUTIF ============ -->
+<section>
+    <div class="container">
+        <div class="section-header fade-in">
+            <h2>R&eacute;sum&eacute; Ex&eacute;cutif</h2>
+            <div class="section-line"></div>
+            <p>Apr&egrave;s la pire crise d'approvisionnement de la d&eacute;cennie, le march&eacute; mondial se redresse fortement.</p>
+        </div>
+
+        <div class="key-figures fade-in">
+            <div class="key-figure">
+                <div class="value">19,4 Mds $</div>
+                <div class="label">March&eacute; mondial 2025</div>
+            </div>
+            <div class="key-figure">
+                <div class="value">+5,97%</div>
+                <div class="label">CAGR 2026&ndash;2034</div>
+            </div>
+            <div class="key-figure">
+                <div class="value">3 572 kt</div>
+                <div class="label">Production 2024/25 (+38%)</div>
+            </div>
+            <div class="key-figure">
+                <div class="value">101 068 t</div>
+                <div class="label">Consommation France 2024</div>
+            </div>
+        </div>
+
+        <div class="pullquote fade-in">
+            <p>Trois dynamiques structurantes dominent le march&eacute; : la pr&eacute;miumisation, la transition bio, et l'&eacute;mergence de nouveaux march&eacute;s en Asie-Pacifique et en Am&eacute;rique latine.</p>
+            <cite>Tendances cl&eacute;s 2026</cite>
+        </div>
+
+        <div class="trend-tags fade-in">
+            <span class="trend-tag">Pr&eacute;miumisation</span>
+            <span class="trend-tag">Bio 20% du march&eacute; FR</span>
+            <span class="trend-tag">Asie-Pacifique</span>
+            <span class="trend-tag">EVOO +5,3% CAGR</span>
+            <span class="trend-tag">45% conso UE</span>
+            <span class="trend-tag">30% AOP France</span>
+        </div>
+    </div>
+</section>
+
+<!-- ============ 1. MARCHES MONDIAUX ============ -->
+<section id="mondial">
+    <div class="container">
+        <div class="section-header fade-in">
+            <span class="section-number">01</span>
+            <h2>March&eacute;s Mondiaux</h2>
+            <div class="section-line"></div>
+            <p>Taille, production, consommation et acteurs cl&eacute;s du march&eacute; mondial</p>
+        </div>
+
+        <div class="prose fade-in">
+            <h3>Taille et croissance</h3>
+            <p>Le march&eacute; mondial de l'huile d'olive est estim&eacute; entre <strong>15,7 et 19,4 milliards USD en 2025</strong>. La projection centrale s'&eacute;tablit autour de <strong>34 milliards USD d'ici 2034</strong>, avec un CAGR de ~6%.</p>
+            <p>Le segment EVOO (huile d'olive vierge extra) repr&eacute;sente la part la plus dynamique : estim&eacute; &agrave; <strong>10,1 milliards USD en 2024</strong>, il devrait atteindre <strong>17,8 milliards d'ici 2035</strong> (CAGR +5,3%).</p>
+
+            <h3>Production mondiale 2024/25</h3>
+            <p>La production mondiale a tripl&eacute; en 60 ans. La campagne 2024/25 marque un rebond historique avec <strong>3 572 000 tonnes</strong> (+38% apr&egrave;s deux campagnes catastrophiques).</p>
+        </div>
+
+        <div class="prose fade-in">
+            <h4>Sept pays concentrent 80% de la production mondiale</h4>
+        </div>
+
+        <div class="table-wrapper fade-in">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Pays</th>
+                        <th>Prod. 2024/25 (kt)</th>
+                        <th>Var. vs 2023/24</th>
+                        <th>Rang</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>Espagne</td><td>1 419</td><td>+66%</td><td>1er</td></tr>
+                    <tr><td>Turquie</td><td>505</td><td>+135%</td><td>2e</td></tr>
+                    <tr><td>Tunisie</td><td>340</td><td>+55%</td><td>3e</td></tr>
+                    <tr><td>Gr&egrave;ce</td><td>250</td><td>+30%</td><td>4e</td></tr>
+                    <tr><td>Italie</td><td>248</td><td>-25%</td><td>5e</td></tr>
+                    <tr><td>Portugal</td><td>177</td><td>+10%</td><td>6e</td></tr>
+                    <tr><td>Maroc</td><td>110</td><td>Stable</td><td>7e</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="prose fade-in">
+            <p><strong>L'Espagne est l'acteur central</strong> : elle produit &agrave; elle seule <strong>40% de la production mondiale</strong> et repr&eacute;sente un &eacute;talon-prix pour l'ensemble de la fili&egrave;re.</p>
+
+            <h3>Consommation mondiale</h3>
+            <p>La consommation mondiale 2024/25 est estim&eacute;e &agrave; <strong>3 215 000 t (+15%)</strong> &mdash; un rebond apr&egrave;s deux ann&eacute;es de repli caus&eacute; par la flamb&eacute;e des prix.</p>
+        </div>
+
+        <div class="stat-bar-group fade-in">
+            <div class="stat-bar">
+                <div class="stat-label"><span>Espagne</span><span>40%</span></div>
+                <div class="bar-track"><div class="bar-fill" style="width:40%"></div></div>
+            </div>
+            <div class="stat-bar">
+                <div class="stat-label"><span>Turquie</span><span>14%</span></div>
+                <div class="bar-track"><div class="bar-fill" style="width:14%"></div></div>
+            </div>
+            <div class="stat-bar">
+                <div class="stat-label"><span>Tunisie</span><span>10%</span></div>
+                <div class="bar-track"><div class="bar-fill" style="width:10%"></div></div>
+            </div>
+            <div class="stat-bar">
+                <div class="stat-label"><span>Gr&egrave;ce</span><span>7%</span></div>
+                <div class="bar-track"><div class="bar-fill" style="width:7%"></div></div>
+            </div>
+            <div class="stat-bar">
+                <div class="stat-label"><span>Italie</span><span>7%</span></div>
+                <div class="bar-track"><div class="bar-fill" style="width:7%"></div></div>
+            </div>
+            <div class="stat-bar">
+                <div class="stat-label"><span>Portugal</span><span>5%</span></div>
+                <div class="bar-track"><div class="bar-fill" style="width:5%"></div></div>
+            </div>
+        </div>
+
+        <div class="divider-70s"><div class="diamond"></div></div>
+
+        <div class="prose fade-in">
+            <h3>Acteurs mondiaux principaux</h3>
+            <p>Le march&eacute; mondial reste <strong>tr&egrave;s fragment&eacute;</strong> : les 5 premiers groupes ne d&eacute;tiennent que ~24% des parts. Deoleo S.A. est le leader avec 7,4% de part de march&eacute;.</p>
+        </div>
+
+        <div class="table-wrapper fade-in">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Groupe</th>
+                        <th>Marques phares</th>
+                        <th>Origine</th>
+                        <th>Positionnement</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>Deoleo S.A. (7,4%)</td><td>Carbonell, Bertolli, Carapelli</td><td>Espagne</td><td>Mass-market + milieu</td></tr>
+                    <tr><td>Sovena Group</td><td>Gallo, Fontoliva</td><td>Portugal</td><td>Milieu de gamme</td></tr>
+                    <tr><td>Borges International</td><td>Borges</td><td>Espagne</td><td>Mass-market</td></tr>
+                    <tr><td>Salov Group</td><td>Filippo Berio, Sagra</td><td>Italie</td><td>Milieu de gamme</td></tr>
+                    <tr><td>Pompeian</td><td>Pompeian</td><td>USA/Italie</td><td>Mass-market USA</td></tr>
+                    <tr><td>Groupe Avril</td><td>Puget, Lesieur</td><td>France</td><td>Milieu gamme FR</td></tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</section>
+
+<!-- ============ 2. EUROPE ============ -->
+<section id="europe">
+    <div class="container">
+        <div class="section-header fade-in">
+            <span class="section-number">02</span>
+            <h2>March&eacute; Europ&eacute;en</h2>
+            <div class="section-line"></div>
+            <p>L'UE, premier producteur mondial &mdash; 60% de la production, 72% des exportations</p>
+        </div>
+
+        <div class="table-wrapper fade-in">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Pays UE</th>
+                        <th>Prod. 2024/25 (kt)</th>
+                        <th>Part UE</th>
+                        <th>Part mondiale</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>Espagne</td><td>1 419</td><td>67%</td><td>40%</td></tr>
+                    <tr><td>Italie</td><td>248</td><td>12%</td><td>7%</td></tr>
+                    <tr><td>Gr&egrave;ce</td><td>250</td><td>12%</td><td>7%</td></tr>
+                    <tr><td>Portugal</td><td>177</td><td>8%</td><td>5%</td></tr>
+                    <tr><td>France</td><td>6,5</td><td>&lt;1%</td><td>&lt;1%</td></tr>
+                    <tr><td><strong>Total UE</strong></td><td><strong>~2 110</strong></td><td><strong>100%</strong></td><td><strong>59%</strong></td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="prose fade-in">
+            <h3>Consommation et commerce intra-europ&eacute;en</h3>
+            <p>La consommation europ&eacute;enne (~1 200 000 t) repr&eacute;sente <strong>45% de la consommation mondiale</strong>. La France est le <strong>4e importateur mondial</strong> avec 116 920 t &agrave; un prix moyen de <strong>8,35 &euro;/kg</strong>.</p>
+
+            <h3>Prix &agrave; la production en Europe (2025&ndash;2026)</h3>
+            <p>Apr&egrave;s le pic de 2023/24, les prix producteurs ont sensiblement baiss&eacute; gr&acirc;ce au retour des volumes espagnols.</p>
+        </div>
+
+        <div class="table-wrapper fade-in">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Origine</th>
+                        <th>EVOO Conventionnel</th>
+                        <th>EVOO Bio</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>Espagne</td><td>4,60 &euro;/kg</td><td>5,40 &euro;/kg</td></tr>
+                    <tr><td>Italie</td><td>6,90 &euro;/kg</td><td>7,50 &euro;/kg</td></tr>
+                    <tr><td>Tunisie/Portugal</td><td>&lt;4,50 &euro;/kg</td><td>&mdash;</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="pullquote fade-in">
+            <p>L'&eacute;cart Espagne&ndash;Italie refl&egrave;te un diff&eacute;rentiel structurel : l'Italie maintient un premium de prix de +50% gr&acirc;ce &agrave; sa r&eacute;putation de qualit&eacute;.</p>
+            <cite>Dynamique des prix producteurs</cite>
+        </div>
+
+        <div class="prose fade-in">
+            <h3>Cadre r&eacute;glementaire europ&eacute;en</h3>
+            <p>Plus de <strong>150 AOP/IGP</strong> d'huile d'olive sont reconnues en Europe. Le cadre normatif UE couvre les cat&eacute;gories (vierge extra, vierge, raffin&eacute;e) et le syst&egrave;me de labels g&eacute;ographiques :</p>
+            <ul>
+                <li><strong>AOP</strong> : lien strict terroir&ndash;production&ndash;transformation</li>
+                <li><strong>IGP</strong> : lien g&eacute;ographique plus souple</li>
+                <li><strong>Bio</strong> : R&eacute;glementation UE 2018/848</li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<!-- ============ 3. FRANCE ============ -->
+<section id="france">
+    <div class="container">
+        <div class="section-header fade-in">
+            <span class="section-number">03</span>
+            <h2>March&eacute; Fran&ccedil;ais</h2>
+            <div class="section-line"></div>
+            <p>Grand consommateur, tr&egrave;s petit producteur &mdash; un paradoxe fran&ccedil;ais</p>
+        </div>
+
+        <div class="key-figures fade-in">
+            <div class="key-figure">
+                <div class="value">6%</div>
+                <div class="label">Production nationale / consommation</div>
+            </div>
+            <div class="key-figure">
+                <div class="value">74%</div>
+                <div class="label">Imports d'Espagne</div>
+            </div>
+            <div class="key-figure">
+                <div class="value">9 AOP</div>
+                <div class="label">Appellations fran&ccedil;aises</div>
+            </div>
+            <div class="key-figure">
+                <div class="value">x2,5</div>
+                <div class="label">Conso multipli&eacute;e en 25 ans</div>
+            </div>
+        </div>
+
+        <div class="prose fade-in">
+            <h3>Production fran&ccedil;aise &mdash; Record historique 2023/24</h3>
+            <p>La production nationale, concentr&eacute;e en PACA, Occitanie et Auvergne-Rh&ocirc;ne-Alpes, a atteint <strong>6 806 t (+84%)</strong>.</p>
+        </div>
+
+        <div class="table-wrapper fade-in">
+            <table>
+                <thead>
+                    <tr>
+                        <th>R&eacute;gion</th>
+                        <th>2023/24 (t)</th>
+                        <th>Variation</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>PACA</td><td>4 240</td><td>+84%</td></tr>
+                    <tr><td>Occitanie</td><td>1 535</td><td>+63%</td></tr>
+                    <tr><td>Auvergne-Rh&ocirc;ne-Alpes</td><td>865</td><td>+161%</td></tr>
+                    <tr><td>Corse</td><td>166</td><td>+43%</td></tr>
+                    <tr><td><strong>Total France</strong></td><td><strong>6 806</strong></td><td><strong>+84%</strong></td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="flower-divider">* * * * *</div>
+
+        <div class="prose fade-in">
+            <h3>Les 9 AOP fran&ccedil;aises</h3>
+        </div>
+
+        <div class="aop-grid fade-in">
+            <div class="aop-card">
+                <h4>Vall&eacute;e des Baux</h4>
+                <div class="aop-region">PACA</div>
+                <div class="aop-variety">Salonenque, Grossane</div>
+                <div class="aop-profile">Fruit&eacute; vert intense ou noir</div>
+            </div>
+            <div class="aop-card">
+                <h4>Aix-en-Provence</h4>
+                <div class="aop-region">PACA</div>
+                <div class="aop-variety">Aglandau, Salonenque</div>
+                <div class="aop-profile">Fruit&eacute; vert intense, amer</div>
+            </div>
+            <div class="aop-card">
+                <h4>Nyons</h4>
+                <div class="aop-region">Dr&ocirc;me</div>
+                <div class="aop-variety">Tanche</div>
+                <div class="aop-profile">Fruit&eacute; m&ucirc;r, douceur</div>
+            </div>
+            <div class="aop-card">
+                <h4>Haute-Provence</h4>
+                <div class="aop-region">Alpes</div>
+                <div class="aop-variety">Aglandau</div>
+                <div class="aop-profile">Fruit&eacute; vert</div>
+            </div>
+            <div class="aop-card">
+                <h4>Provence</h4>
+                <div class="aop-region">PACA</div>
+                <div class="aop-variety">Multi-vari&eacute;taux</div>
+                <div class="aop-profile">Large spectre</div>
+            </div>
+            <div class="aop-card">
+                <h4>N&icirc;mes</h4>
+                <div class="aop-region">Gard</div>
+                <div class="aop-variety">Picholine</div>
+                <div class="aop-profile">Fruit&eacute; vert, herbac&eacute;</div>
+            </div>
+            <div class="aop-card">
+                <h4>Nice</h4>
+                <div class="aop-region">Alpes-Maritimes</div>
+                <div class="aop-variety">Cailletier</div>
+                <div class="aop-profile">Fruit&eacute; m&ucirc;r</div>
+            </div>
+            <div class="aop-card">
+                <h4>Languedoc</h4>
+                <div class="aop-region">Occitanie</div>
+                <div class="aop-variety">Picholine</div>
+                <div class="aop-profile">Fruit&eacute; vert</div>
+            </div>
+            <div class="aop-card">
+                <h4>Corse</h4>
+                <div class="aop-region">Corse</div>
+                <div class="aop-variety">Multi-vari&eacute;taux</div>
+                <div class="aop-profile">Fruit&eacute; m&ucirc;r</div>
+            </div>
+        </div>
+
+        <div class="prose fade-in">
+            <p>Prix moyens au moulin 2023/24 : <strong>19,13 &euro;/kg</strong> (huile de France), <strong>22,90 &euro;/kg</strong> (AOP non bio), <strong>27,25 &euro;/kg</strong> (AOP bio).</p>
+
+            <h3>Distribution et canaux de vente</h3>
+        </div>
+
+        <div class="stat-bar-group fade-in">
+            <div class="stat-bar">
+                <div class="stat-label"><span>Grande distribution (hyper/super)</span><span>&gt;65%</span></div>
+                <div class="bar-track"><div class="bar-fill" style="width:65%"></div></div>
+            </div>
+            <div class="stat-bar">
+                <div class="stat-label"><span>Hard discount (Lidl, Aldi)</span><span>10&ndash;12%</span></div>
+                <div class="bar-track"><div class="bar-fill" style="width:11%"></div></div>
+            </div>
+            <div class="stat-bar">
+                <div class="stat-label"><span>E-commerce + drives</span><span>&lt;10%</span></div>
+                <div class="bar-track"><div class="bar-fill" style="width:9%"></div></div>
+            </div>
+            <div class="stat-bar">
+                <div class="stat-label"><span>RHF (restauration)</span><span>7&ndash;8%</span></div>
+                <div class="bar-track"><div class="bar-fill" style="width:7.5%"></div></div>
+            </div>
+            <div class="stat-bar">
+                <div class="stat-label"><span>Circuits sp&eacute;cialis&eacute;s / Vente directe</span><span>&lt;5%</span></div>
+                <div class="bar-track"><div class="bar-fill" style="width:5%"></div></div>
+            </div>
+        </div>
+
+        <div class="prose fade-in">
+            <p>Les <strong>MDD</strong> repr&eacute;sentent <strong>41% des ventes en GMS</strong> et constituent le premier bloc du march&eacute;. Puget (Groupe Avril) et Carapelli (Deoleo) occupent les positions 2 et 3.</p>
+        </div>
+    </div>
+</section>
+
+<!-- ============ 4. SEGMENTS ============ -->
+<section id="segments">
+    <div class="container">
+        <div class="section-header fade-in">
+            <span class="section-number">04</span>
+            <h2>Segmentation par Gamme</h2>
+            <div class="section-line"></div>
+            <p>Du bas de gamme &agrave; l'ultra-premium &mdash; quatre univers, quatre logiques</p>
+        </div>
+
+        <!-- BAS DE GAMME -->
+        <div class="segment-strip fade-in">
+            <div class="strip-label strip-bas">Entr&eacute;e</div>
+            <div class="strip-content">
+                <h3>Bas de gamme</h3>
+                <div class="price-range">4,5 &agrave; 8 &euro;/L &middot; ~25% du march&eacute; en volume</div>
+                <ul>
+                    <li>Huiles raffin&eacute;es, m&eacute;langes, MDD entr&eacute;e de gamme</li>
+                    <li>Assemblage multi-origines UE ou Tunisie</li>
+                    <li>Emballage fonctionnel (PET, verre basique)</li>
+                    <li><strong>Lidl Primadonna EVOO</strong> : &eacute;lue meilleure par 60 Millions de Consommateurs &agrave; 6,99 &euro;/L</li>
+                    <li>Segment le plus sensible &agrave; l'&eacute;lasticit&eacute;-prix</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- MILIEU DE GAMME -->
+        <div class="segment-strip fade-in">
+            <div class="strip-label strip-milieu">Milieu</div>
+            <div class="strip-content">
+                <h3>Milieu de gamme</h3>
+                <div class="price-range">7 &agrave; 15 &euro;/L &middot; ~55% du march&eacute; &mdash; segment dominant</div>
+                <ul>
+                    <li>EVOO d'origine identifi&eacute;e (Espagne, Italie, Gr&egrave;ce, Tunisie)</li>
+                    <li>Acidit&eacute; &lt; 0,8%, profil aromatique d&eacute;crit</li>
+                    <li><strong>Puget</strong> : 1&egrave;re marque nationale &middot; <strong>Carapelli</strong> : identit&eacute; italienne &middot; <strong>Terra Delyssa</strong> : tunisienne accessible</li>
+                    <li>Nutri-Score B/A &mdash; argument marketing cl&eacute;</li>
+                    <li>Concurrence intense marques nationales vs MDD</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- HAUT DE GAMME -->
+        <div class="segment-strip fade-in">
+            <div class="strip-label strip-haut">Premium</div>
+            <div class="strip-content">
+                <h3>Haut de gamme / Premium</h3>
+                <div class="price-range">15 &agrave; 35 &euro;/L &middot; ~15% volume, ~28% valeur</div>
+                <ul>
+                    <li>AOP, IGP, bio de qualit&eacute;, mono-vari&eacute;tal, early harvest</li>
+                    <li>Acidit&eacute; &lt; 0,3&ndash;0,5%, polyph&eacute;nols &gt; 250 mg/kg</li>
+                    <li>Pressage &agrave; froid dans les 24h, emballage soign&eacute;</li>
+                    <li><strong>Puget Origine France</strong> ~31 &euro;/L &middot; <strong>AOP Nyons</strong> ~40 &euro;/L &middot; <strong>AOP Vall&eacute;e des Baux</strong> ~35 &euro;/L</li>
+                    <li>Segment en forte croissance, marges 20&ndash;35%</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- ULTRA-PREMIUM -->
+        <div class="segment-strip fade-in">
+            <div class="strip-label strip-ultra">Luxe</div>
+            <div class="strip-content">
+                <h3>Ultra-premium / Luxe</h3>
+                <div class="price-range">40 &euro;/L et au-del&agrave; &middot; &lt;5% volume, ~12% valeur</div>
+                <ul>
+                    <li>Production artisanale tr&egrave;s limit&eacute;e, tra&ccedil;abilit&eacute; parcellaire</li>
+                    <li>Polyph&eacute;nols &gt; 700 mg/kg, distinctions internationales</li>
+                    <li>Packaging luxueux (c&eacute;ramique artisanale, verre souffl&eacute;)</li>
+                    <li><strong>Ch&acirc;teau Estoublon</strong> 114 &euro;/L &middot; <strong>Elenianna Corinto</strong> 400 &euro;/L &middot; <strong>Lambda</strong> 1 305 $/L</li>
+                    <li>Croissance tr&egrave;s forte, marges &gt;50%</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ============ 5. INTERNATIONAL ============ -->
+<section id="international">
+    <div class="container">
+        <div class="section-header fade-in">
+            <span class="section-number">05</span>
+            <h2>March&eacute;s Internationaux</h2>
+            <div class="section-line"></div>
+            <p>Etats-Unis, Asie-Pacifique, Am&eacute;rique du Sud &mdash; les relais de croissance</p>
+        </div>
+
+        <div class="card-grid fade-in">
+            <div class="card">
+                <span class="card-tag">USA</span>
+                <h3>&Eacute;tats-Unis</h3>
+                <p>3e march&eacute; mondial. <strong>3,13 Mds USD</strong> en 2024, projection <strong>4,78 Mds</strong> en 2030 (CAGR 7,4%).</p>
+                <p>California Olive Ranch a cr&eacute;&eacute; un segment "local premium". Forte pr&eacute;miumisation, bio, monocultures en specialty retail.</p>
+            </div>
+            <div class="card">
+                <span class="card-tag">APAC</span>
+                <h3>Asie-Pacifique</h3>
+                <p><strong>139 000 t / 1,1 Md USD</strong> en 2024, croissance +9,2% en volume. Ta&iuml;wan CAGR +17%/an &mdash; adoption la plus rapide.</p>
+                <p>March&eacute; structurellement importateur (95% des besoins). Relais de croissance le plus attractif pour le premium europ&eacute;en.</p>
+            </div>
+            <div class="card">
+                <span class="card-tag">LATAM</span>
+                <h3>Br&eacute;sil</h3>
+                <p>5e importateur mondial (82 000 t / 600 M$ en 2023). Contraction en volume mais croissance en valeur = <strong>pr&eacute;miumisation</strong>.</p>
+                <p>Portugal domine (60% des parts), suivi de l'Espagne.</p>
+            </div>
+            <div class="card">
+                <span class="card-tag">MENA</span>
+                <h3>Moyen-Orient &amp; Afrique du Nord</h3>
+                <p>Turquie (+135% production) et Tunisie (+55%) : acteurs croissants en production et exportation.</p>
+                <p>La Turquie gagne des parts sur les march&eacute;s &agrave; prix compress&eacute; d'Europe du Nord.</p>
+            </div>
+        </div>
+
+        <div class="table-wrapper fade-in">
+            <table>
+                <thead>
+                    <tr>
+                        <th>March&eacute;</th>
+                        <th>Taille 2024</th>
+                        <th>CAGR</th>
+                        <th>Driver principal</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>USA</td><td>3,13 Mds USD</td><td>7,4%</td><td>Pr&eacute;miumisation, bio, local</td></tr>
+                    <tr><td>Asie-Pacifique</td><td>1,1 Md USD</td><td>9,2%</td><td>Adoption, sant&eacute;</td></tr>
+                    <tr><td>Japon</td><td>301 kt</td><td>&mdash;</td><td>Tradition qualitative, long&eacute;vit&eacute;</td></tr>
+                    <tr><td>Ta&iuml;wan</td><td>&mdash;</td><td>+17%</td><td>Adoption la plus rapide</td></tr>
+                    <tr><td>Br&eacute;sil</td><td>600 M$</td><td>&mdash;</td><td>Classe moyenne, premium</td></tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</section>
+
+<!-- ============ 6. TENDANCES ============ -->
+<section id="tendances">
+    <div class="container">
+        <div class="section-header fade-in">
+            <span class="section-number">06</span>
+            <h2>Tendances Structurantes</h2>
+            <div class="section-line"></div>
+            <p>Les forces qui fa&ccedil;onnent le march&eacute; de demain</p>
+        </div>
+
+        <div class="card-grid fade-in">
+            <div class="card">
+                <span class="card-tag">Tendance #1</span>
+                <h3>Pr&eacute;miumisation</h3>
+                <p>Progression des EVOO, mont&eacute;e des monocultures et early harvest. Explosion de l'EVOO bio (+23% de demande mondiale en 2025). D&eacute;veloppement des formats r&eacute;duits premium (250 ml) pour tester et offrir.</p>
+            </div>
+            <div class="card">
+                <span class="card-tag">Tendance #2</span>
+                <h3>Transition Bio</h3>
+                <p><strong>20% du march&eacute; fran&ccedil;ais.</strong> Le label bio seul ne suffit plus : les acteurs ajoutent AOP + bio, polyph&eacute;nols, empreinte carbone. Demande mondiale +127% sur Google Trends entre 2024 et 2025.</p>
+            </div>
+            <div class="card">
+                <span class="card-tag">Tendance #3</span>
+                <h3>E-commerce &amp; D2C</h3>
+                <p>Canal &agrave; la croissance la plus rapide : <strong>CAGR +15%/an</strong>. Profite aux petits producteurs artisanaux, marques premium (abonnements), marketplaces sp&eacute;cialis&eacute;es.</p>
+            </div>
+            <div class="card">
+                <span class="card-tag">Tendance #4</span>
+                <h3>Sant&eacute; &amp; Nutrition</h3>
+                <p>Positionnement sant&eacute; exceptionnel : cardiovasculaire, anti-inflammatoire, polyph&eacute;nols. Nutri-Score B/A et Eco-Score en France. Sous-segment &eacute;mergent "huile m&eacute;dicinale".</p>
+            </div>
+            <div class="card">
+                <span class="card-tag">Tendance #5</span>
+                <h3>Crise Climatique</h3>
+                <p>Vuln&eacute;rabilit&eacute; structurelle aux s&eacute;cheresses (Espagne = 40% production). Diversification des origines (Portugal, Maroc, Turquie, Australie). Investissements irrigation et vari&eacute;t&eacute;s r&eacute;sistantes.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ============ 7. OPPORTUNITES & RISQUES ============ -->
+<section id="opportunites">
+    <div class="container">
+        <div class="section-header fade-in">
+            <span class="section-number">07</span>
+            <h2>Opportunit&eacute;s &amp; Risques</h2>
+            <div class="section-line"></div>
+            <p>Analyse concurrentielle et positionnement strat&eacute;gique</p>
+        </div>
+
+        <div class="table-wrapper fade-in">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Segment</th>
+                        <th>Leaders France</th>
+                        <th>Marges</th>
+                        <th>Barri&egrave;res</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>Bas de gamme</td><td>MDD (41%), Lidl</td><td>2&ndash;5%</td><td>Tr&egrave;s faibles</td></tr>
+                    <tr><td>Milieu de gamme</td><td>Puget, Carapelli, Tramier</td><td>8&ndash;15%</td><td>Mod&eacute;r&eacute;es</td></tr>
+                    <tr><td>Haut de gamme</td><td>AOP locales, La Tourangelle</td><td>20&ndash;35%</td><td>Fortes</td></tr>
+                    <tr><td>Ultra-premium</td><td>Ch. Estoublon, artisans</td><td>&gt;50%</td><td>Tr&egrave;s fortes</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="highlight-box fade-in">
+            <h4>Opportunit&eacute;s identifi&eacute;es</h4>
+            <ul>
+                <li><strong>Haut de gamme / AOP</strong> : e-commerce D2C avec abonnements, export vers USA/Japon/Chine, ol&eacute;otourisme en PACA</li>
+                <li><strong>International</strong> : Asie-Pacifique (sous-p&eacute;n&eacute;tration), USA ("french olive oil" = aura vin/fromage), Br&eacute;sil/Mexique</li>
+                <li><strong>Bio premium</strong> : combo AOP + bio encore rare et tr&egrave;s bien valoris&eacute; (&gt;25 &euro;/L), CAGR 7,8%</li>
+            </ul>
+        </div>
+
+        <div class="prose fade-in">
+            <h3>Risques et menaces</h3>
+        </div>
+
+        <div class="fade-in">
+            <div class="risk-card">
+                <div class="risk-icon">1</div>
+                <div class="risk-body">
+                    <h4>S&eacute;cheresses et changement climatique</h4>
+                    <p>Vuln&eacute;rabilit&eacute; structurelle du secteur, amplifi&eacute;e par la concentration en Espagne</p>
+                    <div class="risk-badges">
+                        <span class="risk-badge risk-high">Impact tr&egrave;s fort</span>
+                        <span class="risk-badge risk-high">Probabilit&eacute; &eacute;lev&eacute;e</span>
+                    </div>
+                </div>
+            </div>
+            <div class="risk-card">
+                <div class="risk-icon">2</div>
+                <div class="risk-body">
+                    <h4>Mont&eacute;e des concurrents non-UE</h4>
+                    <p>Turquie, Maroc, Australie gagnent des parts de march&eacute;</p>
+                    <div class="risk-badges">
+                        <span class="risk-badge risk-high">Impact fort</span>
+                        <span class="risk-badge risk-medium">Probabilit&eacute; moyenne</span>
+                    </div>
+                </div>
+            </div>
+            <div class="risk-card">
+                <div class="risk-icon">3</div>
+                <div class="risk-body">
+                    <h4>Fraude et faux labels</h4>
+                    <p>Huile lampante vendue en EVOO &mdash; risque r&eacute;putationnel majeur pour la fili&egrave;re</p>
+                    <div class="risk-badges">
+                        <span class="risk-badge risk-high">Impact fort</span>
+                        <span class="risk-badge risk-medium">Probabilit&eacute; moyenne</span>
+                    </div>
+                </div>
+            </div>
+            <div class="risk-card">
+                <div class="risk-icon">4</div>
+                <div class="risk-body">
+                    <h4>Substitution par huiles alternatives</h4>
+                    <p>Huile d'avocat et autres "huiles saines" grignotent le p&eacute;rim&egrave;tre</p>
+                    <div class="risk-badges">
+                        <span class="risk-badge risk-medium">Impact mod&eacute;r&eacute;</span>
+                        <span class="risk-badge risk-low">Probabilit&eacute; faible</span>
+                    </div>
+                </div>
+            </div>
+            <div class="risk-card">
+                <div class="risk-icon">5</div>
+                <div class="risk-body">
+                    <h4>Elasticit&eacute;-prix et droits de douane</h4>
+                    <p>Effet prix sur la consommation si remont&eacute;e, droits de douane US sur produits UE</p>
+                    <div class="risk-badges">
+                        <span class="risk-badge risk-high">Impact fort</span>
+                        <span class="risk-badge risk-medium">Probabilit&eacute; possible</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ============ 8. SYNTHESE ============ -->
+<section id="synthese">
+    <div class="container">
+        <div class="section-header fade-in">
+            <span class="section-number">08</span>
+            <h2>Synth&egrave;se &amp; Recommandations</h2>
+            <div class="section-line"></div>
+        </div>
+
+        <div class="table-wrapper fade-in summary-table">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Crit&egrave;re</th>
+                        <th>Bas de gamme</th>
+                        <th>Milieu de gamme</th>
+                        <th>Haut de gamme</th>
+                        <th>Ultra-premium</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td><strong>Prix/L</strong></td><td>4,5&ndash;8 &euro;</td><td>7&ndash;15 &euro;</td><td>15&ndash;35 &euro;</td><td>40&ndash;120 &euro;+</td></tr>
+                    <tr><td><strong>Volume</strong></td><td>~25%</td><td>~55%</td><td>~15%</td><td>&lt;5%</td></tr>
+                    <tr><td><strong>Valeur</strong></td><td>~15%</td><td>~45%</td><td>~28%</td><td>~12%</td></tr>
+                    <tr><td><strong>Croissance</strong></td><td>Stable</td><td>Stable+</td><td>Forte</td><td>Tr&egrave;s forte</td></tr>
+                    <tr><td><strong>Levier cl&eacute;</strong></td><td>Prix, MDD</td><td>Marque, origine</td><td>Terroir, bio, AOP</td><td>Raret&eacute;, story</td></tr>
+                    <tr><td><strong>Canal</strong></td><td>GMS, discount</td><td>GMS, e-com</td><td>Sp&eacute;c., e-com</td><td>Fine, D2C</td></tr>
+                    <tr><td><strong>Cible</strong></td><td>Budget</td><td>Grand public</td><td>CSP+ urbain</td><td>Amateur, cadeau</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="flower-divider">* * * * *</div>
+
+        <div class="prose fade-in">
+            <h3>Points cl&eacute;s &agrave; retenir</h3>
+            <ol class="takeaway-list">
+                <li><strong>March&eacute; en croissance structurelle</strong> (~6% CAGR) port&eacute; par la sant&eacute;, le r&eacute;gime m&eacute;diterran&eacute;en et l'&eacute;mergence de nouvelles g&eacute;ographies.</li>
+                <li><strong>France : importateur d&eacute;pendant</strong> de l'Espagne (74%). Production nationale = 6% des besoins, mais valoris&eacute;e en AOP premium.</li>
+                <li><strong>La crise de prix 2022&ndash;2024 est derri&egrave;re nous</strong> : production +38%, prix producteurs -30 &agrave; 40% vs pics.</li>
+                <li><strong>Segment le plus porteur : EVOO premium et bio</strong>. Croissance rapide, marges &eacute;lev&eacute;es, diff&eacute;renciation par terroir et certification.</li>
+                <li><strong>March&eacute;s &agrave; conqu&eacute;rir</strong> : Asie-Pacifique (Ta&iuml;wan +17% CAGR), &Eacute;tats-Unis (7,4&ndash;8% CAGR), Br&eacute;sil.</li>
+                <li><strong>Atout diff&eacute;renciant fran&ccedil;ais</strong> : 9 AOP, production limit&eacute;e (6 800 t/an). Tout d&eacute;veloppement distribution, export, e-commerce sur les AOP fran&ccedil;aises est pertinent.</li>
+            </ol>
+        </div>
+
+        <div class="pullquote fade-in">
+            <p>La France dispose d'un atout diff&eacute;renciant unique avec ses 9 AOP, mais la production reste tr&egrave;s limit&eacute;e &mdash; tout d&eacute;veloppement de l'aval sur les huiles fran&ccedil;aises AOP est pertinent.</p>
+            <cite>Recommandation strat&eacute;gique</cite>
+        </div>
+    </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+    <div class="container">
+        <h3>L'Or Vert &mdash; &Eacute;tude de March&eacute; Huile d'Olive</h3>
+        <p>Rapport r&eacute;dig&eacute; en avril 2026. Bas, moyen et haut de gamme. France &middot; Europe &middot; International.</p>
+        <div class="source-list">
+            Sources : FranceAgriMer &middot; Conseil International de l'Olive (COI) &middot; Fortune Business Insights &middot; IMARC Group &middot; UFC-Que Choisir &middot; Wikifarmer &middot; Olive Oil Times &middot; Grand View Research &middot; IndexBox &middot; Market Research Future &middot; Ken Research
+        </div>
+        <div class="copyright">&copy; 2026 &mdash; Design inspir&eacute; par l'esth&eacute;tique des ann&eacute;es 70</div>
+    </div>
+</footer>
+
+<!-- ============ SCROLL ANIMATION ============ -->
+<script>
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+            }
+        });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
