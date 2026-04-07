@@ -13,22 +13,28 @@
            ======================================== */
 
         :root {
-            /* --- Palette 70s --- */
-            --avocado:        #6B8E23;
-            --avocado-dark:   #4A6314;
-            --harvest-gold:   #DAA520;
-            --burnt-orange:   #CC5500;
-            --burnt-sienna:   #A0522D;
-            --terracotta:     #C2724F;
-            --olive-brown:    #5C4033;
-            --cream:          #FFF8E7;
-            --parchment:      #F5E6C8;
-            --warm-white:     #FEFCF3;
-            --deep-brown:     #3B2314;
-            --mustard:        #E4A010;
-            --sage:           #9CAF88;
-            --olive-green:    #556B2F;
-            --rust:           #B7410E;
+            /* --- Palette 70s (evite brun+or type livraison) --- */
+            --text-ink:       #2A2320;      /* encre chaude, corps de texte */
+            --pine:           #2E4A40;      /* vert sapin / cuisine avocat fonce */
+            --avocado:        #5F8F6A;      /* avocat adouci, moins jaune */
+            --avocado-dark:   #3D5C4A;      /* avocat profond */
+            --peach-glow:     #F2D8C4;      /* peche creme sur fond fonce (pas or UPS) */
+            --apricot:        #E8B596;      /* abricot 70s */
+            --burnt-orange:   #C75C33;      /* orange brique */
+            --burnt-sienna:   #B54D2E;
+            --terracotta:     #D97254;
+            --dusty-mauve:    #B87A8A;      /* mauve poussiere typique 70s */
+            --olive-brown:    #4E5848;      /* mousse / kaki vert, pas brun UPS */
+            --cream:          #F5EBDD;
+            --parchment:      #E8DFD0;
+            --warm-white:     #FAF5EC;
+            --deep-brown:     #2A2320;      /* alias encre (ombres, details) */
+            --mustard:        #C9A227;      /* moutarde assourdie */
+            --sage:           #8FA897;
+            --olive-green:    #4D7358;
+            --rust:           #A84328;
+            /* Accents retro (remplacent l'or sur brun) */
+            --harvest-gold:   var(--peach-glow);
 
             /* --- Typo --- */
             --font-display: 'DM Serif Display', serif;
@@ -58,17 +64,17 @@
         body {
             font-family: var(--font-body);
             background: var(--cream);
-            color: var(--deep-brown);
+            color: var(--text-ink);
             line-height: 1.7;
             overflow-x: hidden;
         }
 
-        /* --- 70s TEXTURE BACKGROUND --- */
+        /* --- 70s TEXTURE BACKGROUND — motif feuille d'olivier --- */
         body::before {
             content: '';
             position: fixed;
             top: 0; left: 0; right: 0; bottom: 0;
-            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23DAA520' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            background-image: url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%234A5A2B' fill-opacity='0.035'%3E%3Cellipse cx='20' cy='20' rx='6' ry='3' transform='rotate(35 20 20)'/%3E%3Cellipse cx='60' cy='60' rx='6' ry='3' transform='rotate(-35 60 60)'/%3E%3Cellipse cx='60' cy='20' rx='4' ry='2' transform='rotate(55 60 20)'/%3E%3Cellipse cx='20' cy='60' rx='4' ry='2' transform='rotate(-55 20 60)'/%3E%3Ccircle cx='40' cy='40' r='2.5'/%3E%3C/g%3E%3C/svg%3E");
             pointer-events: none;
             z-index: 0;
         }
@@ -89,8 +95,8 @@
             position: sticky;
             top: 0;
             z-index: 100;
-            background: var(--deep-brown);
-            border-bottom: 4px solid var(--harvest-gold);
+            background: var(--pine);
+            border-bottom: 4px solid var(--apricot);
             padding: var(--sp-2) 0;
         }
 
@@ -105,7 +111,7 @@
         nav .logo {
             font-family: var(--font-display);
             font-size: 1.4rem;
-            color: var(--harvest-gold);
+            color: var(--peach-glow);
             text-decoration: none;
             letter-spacing: 2px;
         }
@@ -129,14 +135,23 @@
         }
 
         nav .nav-links a:hover {
-            color: var(--harvest-gold);
+            color: var(--apricot);
         }
 
         /* ========================================
            HERO
            ======================================== */
         .hero {
-            background: linear-gradient(135deg, var(--olive-brown) 0%, var(--deep-brown) 50%, var(--avocado-dark) 100%);
+            background: linear-gradient(
+                155deg,
+                #2a453c 0%,
+                #3d6b55 22%,
+                #5a8f72 42%,
+                #c0644a 62%,
+                #d4896a 78%,
+                #e8b596 92%,
+                #f0d8c4 100%
+            );
             padding: var(--sp-16) 0 var(--sp-12);
             text-align: center;
             position: relative;
@@ -150,10 +165,12 @@
             width: 200%; height: 200%;
             background: repeating-conic-gradient(
                 from 0deg,
-                transparent 0deg 8deg,
-                rgba(218,165,32,0.06) 8deg 10deg
+                transparent 0deg 6deg,
+                rgba(232,181,150,0.12) 6deg 8deg,
+                transparent 8deg 14deg,
+                rgba(184,122,138,0.08) 14deg 16deg
             );
-            animation: slowSpin 120s linear infinite;
+            animation: slowSpin 180s linear infinite;
         }
 
         @keyframes slowSpin {
@@ -165,14 +182,14 @@
             position: absolute;
             bottom: -2px; left: 0; right: 0;
             height: 60px;
-            background: url("data:image/svg+xml,%3Csvg viewBox='0 0 1200 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 60 C200 0 400 0 600 60 C800 0 1000 0 1200 60 L1200 60 L0 60Z' fill='%23FFF8E7'/%3E%3C/svg%3E") no-repeat bottom center;
+            background: url("data:image/svg+xml,%3Csvg viewBox='0 0 1200 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 60 C200 0 400 0 600 60 C800 0 1000 0 1200 60 L1200 60 L0 60Z' fill='%23F5EBDD'/%3E%3C/svg%3E") no-repeat bottom center;
             background-size: cover;
         }
 
         .hero h1 {
             font-family: var(--font-display);
             font-size: clamp(2.8rem, 7vw, 5.5rem);
-            color: var(--harvest-gold);
+            color: var(--cream);
             position: relative;
             z-index: 1;
             line-height: 1.1;
@@ -205,7 +222,7 @@
             align-items: center;
             gap: var(--sp-1);
             background: rgba(255,248,231,0.12);
-            border: 1px solid var(--harvest-gold);
+            border: 1px solid rgba(245,235,221,0.55);
             border-radius: 50px;
             padding: var(--sp-1) var(--sp-3);
             color: var(--parchment);
@@ -242,8 +259,8 @@
         .section-number {
             font-family: var(--font-display);
             font-size: 4rem;
-            color: var(--harvest-gold);
-            opacity: 0.3;
+            color: var(--dusty-mauve);
+            opacity: 0.45;
             line-height: 1;
             display: block;
         }
@@ -259,7 +276,7 @@
         .section-header .section-line {
             width: 80px;
             height: 4px;
-            background: linear-gradient(90deg, var(--harvest-gold), var(--burnt-orange));
+            background: linear-gradient(90deg, var(--dusty-mauve), var(--apricot), var(--terracotta));
             margin: var(--sp-2) auto;
             border-radius: 2px;
         }
@@ -287,12 +304,12 @@
             flex: 1;
             max-width: 200px;
             height: 2px;
-            background: linear-gradient(90deg, transparent, var(--harvest-gold), transparent);
+            background: linear-gradient(90deg, transparent, var(--dusty-mauve), transparent);
         }
 
         .divider-70s .diamond {
             width: 12px; height: 12px;
-            background: var(--harvest-gold);
+            background: var(--terracotta);
             transform: rotate(45deg);
         }
 
@@ -310,7 +327,7 @@
             text-align: center;
             padding: var(--sp-5) var(--sp-3);
             background: var(--warm-white);
-            border: 3px solid var(--harvest-gold);
+            border: 3px solid var(--apricot);
             border-radius: 50%;
             aspect-ratio: 1;
             display: flex;
@@ -360,18 +377,18 @@
         }
 
         thead {
-            background: var(--deep-brown);
+            background: var(--pine);
         }
 
         thead th {
-            color: var(--harvest-gold);
+            color: var(--peach-glow);
             font-family: var(--font-mono);
             font-size: 0.7rem;
             text-transform: uppercase;
             letter-spacing: 1px;
             padding: var(--sp-2) var(--sp-2);
             text-align: left;
-            border-bottom: 3px solid var(--harvest-gold);
+            border-bottom: 3px solid var(--apricot);
         }
 
         tbody tr {
@@ -384,12 +401,12 @@
         }
 
         tbody tr:hover {
-            background: rgba(218,165,32,0.15);
+            background: rgba(232,181,150,0.22);
         }
 
         tbody td {
             padding: var(--sp-2);
-            border-bottom: 1px solid rgba(92,64,51,0.15);
+            border-bottom: 1px solid rgba(78,88,72,0.18);
             vertical-align: top;
         }
 
@@ -504,27 +521,27 @@
         .strip-bas { background: var(--sage); }
         .strip-milieu { background: var(--avocado); }
         .strip-haut { background: var(--burnt-orange); }
-        .strip-ultra { background: var(--deep-brown); }
+        .strip-ultra { background: var(--pine); }
 
         /* ========================================
            PULL QUOTES — 70s groovy
            ======================================== */
         .pullquote {
-            background: linear-gradient(135deg, var(--olive-brown), var(--deep-brown));
+            background: linear-gradient(135deg, var(--avocado-dark), var(--pine), #243d35);
             color: var(--parchment);
             padding: var(--sp-6) var(--sp-5);
             border-radius: 20px;
             margin: var(--sp-6) 0;
             text-align: center;
             position: relative;
-            box-shadow: 6px 6px 0 var(--harvest-gold);
+            box-shadow: 6px 6px 0 var(--dusty-mauve);
         }
 
         .pullquote::before {
             content: '\201C';
             font-family: var(--font-display);
             font-size: 6rem;
-            color: var(--harvest-gold);
+            color: var(--apricot);
             position: absolute;
             top: -10px; left: 30px;
             line-height: 1;
@@ -546,7 +563,7 @@
             font-family: var(--font-mono);
             font-size: 0.7rem;
             font-style: normal;
-            color: var(--harvest-gold);
+            color: var(--peach-glow);
             text-transform: uppercase;
             letter-spacing: 2px;
         }
@@ -584,7 +601,7 @@
         .stat-bar .bar-fill {
             height: 100%;
             border-radius: 12px;
-            background: linear-gradient(90deg, var(--avocado), var(--harvest-gold));
+            background: linear-gradient(90deg, var(--pine), var(--avocado), var(--apricot));
             transition: width 1s ease-out;
         }
 
@@ -600,15 +617,15 @@
         }
 
         .trend-tag {
-            background: var(--deep-brown);
-            color: var(--harvest-gold);
+            background: var(--pine);
+            color: var(--peach-glow);
             font-family: var(--font-mono);
             font-size: 0.7rem;
             text-transform: uppercase;
             letter-spacing: 1px;
             padding: var(--sp-1) var(--sp-3);
             border-radius: 50px;
-            border: 2px solid var(--harvest-gold);
+            border: 2px solid var(--dusty-mauve);
         }
 
         /* ========================================
@@ -623,7 +640,7 @@
             border-radius: 0 12px 12px 0;
             padding: var(--sp-3);
             margin-bottom: var(--sp-2);
-            box-shadow: 3px 3px 0 rgba(92,64,51,0.2);
+            box-shadow: 3px 3px 0 rgba(78,88,72,0.22);
         }
 
         .risk-card .risk-icon {
@@ -642,7 +659,7 @@
         .risk-card .risk-body h4 {
             font-family: var(--font-display);
             font-size: 1rem;
-            color: var(--deep-brown);
+            color: var(--text-ink);
         }
 
         .risk-card .risk-body p {
@@ -674,7 +691,7 @@
            FOOTER — 70s
            ======================================== */
         footer {
-            background: var(--deep-brown);
+            background: var(--pine);
             color: var(--parchment);
             padding: var(--sp-8) 0 var(--sp-4);
             text-align: center;
@@ -688,17 +705,18 @@
             height: 6px;
             background: repeating-linear-gradient(
                 90deg,
-                var(--harvest-gold) 0 20px,
-                var(--burnt-orange) 20px 40px,
+                var(--dusty-mauve) 0 20px,
+                var(--apricot) 20px 40px,
                 var(--avocado) 40px 60px,
-                var(--terracotta) 60px 80px
+                var(--terracotta) 60px 80px,
+                var(--sage) 80px 100px
             );
         }
 
         footer h3 {
             font-family: var(--font-display);
             font-size: 1.5rem;
-            color: var(--harvest-gold);
+            color: var(--peach-glow);
             margin-bottom: var(--sp-3);
         }
 
@@ -803,7 +821,7 @@
             text-align: center;
             margin: var(--sp-6) 0;
             font-size: 1.5rem;
-            color: var(--harvest-gold);
+            color: var(--dusty-mauve);
             opacity: 0.5;
             letter-spacing: 12px;
         }
@@ -817,12 +835,12 @@
         }
 
         .aop-card {
-            background: linear-gradient(135deg, var(--warm-white) 0%, var(--parchment) 100%);
+            background: linear-gradient(135deg, var(--warm-white) 0%, #EDE5CD 100%);
             border: 2px solid var(--avocado);
             border-radius: 12px;
             padding: var(--sp-3);
             text-align: center;
-            box-shadow: 3px 3px 0 rgba(85,107,47,0.3);
+            box-shadow: 3px 3px 0 rgba(77,115,88,0.35);
         }
 
         .aop-card h4 {
@@ -871,18 +889,18 @@
 
         /* Highlight box */
         .highlight-box {
-            background: linear-gradient(90deg, var(--avocado), var(--olive-green));
+            background: linear-gradient(135deg, var(--avocado-dark), var(--olive-green), #2d4a3e);
             color: white;
             padding: var(--sp-4);
             border-radius: 12px;
             margin: var(--sp-4) 0;
-            box-shadow: 4px 4px 0 var(--deep-brown);
+            box-shadow: 4px 4px 0 var(--dusty-mauve);
         }
 
         .highlight-box h4 {
             font-family: var(--font-display);
             font-size: 1.2rem;
-            color: var(--harvest-gold);
+            color: var(--peach-glow);
             margin-bottom: var(--sp-2);
         }
 
@@ -910,7 +928,7 @@
             background: var(--warm-white);
             border-radius: 12px;
             margin-bottom: var(--sp-2);
-            border: 1px solid rgba(92,64,51,0.15);
+            border: 1px solid rgba(78,88,72,0.18);
             font-size: 0.9rem;
         }
 
@@ -921,8 +939,8 @@
             top: 50%;
             transform: translateY(-50%);
             width: 32px; height: 32px;
-            background: var(--harvest-gold);
-            color: var(--deep-brown);
+            background: var(--terracotta);
+            color: var(--warm-white);
             border-radius: 50%;
             display: flex;
             align-items: center;
