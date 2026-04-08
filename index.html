@@ -97,46 +97,59 @@
             top: 0;
             z-index: 100;
             background: var(--pine);
-            border-bottom: 4px solid var(--apricot);
-            padding: var(--sp-2) 0;
+            border-bottom: 3px solid var(--apricot);
+            padding: 0;
         }
 
         nav .container {
             display: flex;
-            align-items: center;
-            justify-content: space-between;
-            flex-wrap: wrap;
-            gap: var(--sp-2);
+            align-items: stretch;
+            gap: 0;
+            padding: 0 var(--sp-2);
         }
 
         nav .logo {
             font-family: var(--font-display);
-            font-size: 1.4rem;
+            font-size: 1rem;
             color: var(--peach-glow);
             text-decoration: none;
             letter-spacing: 2px;
+            white-space: nowrap;
+            display: flex;
+            align-items: center;
+            padding-right: var(--sp-2);
+            border-right: 1px solid rgba(255,255,255,0.15);
+            flex-shrink: 0;
         }
 
         nav .nav-links {
             display: flex;
-            gap: var(--sp-3);
+            gap: 0;
             list-style: none;
-            flex-wrap: wrap;
+            flex-wrap: nowrap;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: none;
         }
+
+        nav .nav-links::-webkit-scrollbar { display: none; }
 
         nav .nav-links a {
             color: var(--parchment);
             text-decoration: none;
             font-family: var(--font-mono);
-            font-size: 0.7rem;
+            font-size: 0.55rem;
             text-transform: uppercase;
-            letter-spacing: 1px;
-            transition: color 0.3s;
-            padding: var(--sp-1) 0;
+            letter-spacing: 0.5px;
+            transition: color 0.2s, background 0.2s;
+            padding: 10px var(--sp-2);
+            white-space: nowrap;
+            display: block;
         }
 
         nav .nav-links a:hover {
             color: var(--apricot);
+            background: rgba(255,255,255,0.06);
         }
 
         /* ========================================
@@ -769,9 +782,8 @@
                 padding: var(--sp-2);
             }
 
-            nav .nav-links {
-                gap: var(--sp-2);
-            }
+            nav .logo { font-size: 0.85rem; padding-right: var(--sp-1); }
+            nav .nav-links a { padding: 8px var(--sp-1); font-size: 0.5rem; }
 
             .hero { padding: var(--sp-10) 0 var(--sp-8); }
         }
@@ -979,6 +991,10 @@
             <li><a href="#tendances">Tendances</a></li>
             <li><a href="#opportunites">Opportunit&eacute;s</a></li>
             <li><a href="#synthese">Synth&egrave;se</a></li>
+            <li><a href="#reglementation">R&eacute;glementation</a></li>
+            <li><a href="#benchmark">Benchmark</a></li>
+            <li><a href="#marques">Marques</a></li>
+            <li><a href="#non-alimentaire">Hors alim.</a></li>
         </ul>
     </div>
 </nav>
@@ -1703,13 +1719,583 @@
     </div>
 </section>
 
+<!-- ============ 9. REGLEMENTATION ============ -->
+<section id="reglementation">
+    <div class="container">
+        <div class="section-header fade-in">
+            <span class="section-number">09</span>
+            <h2>R&eacute;glementation &amp; Conformit&eacute;</h2>
+            <div class="section-line"></div>
+            <p>Le cadre juridique pour lancer une huile d'olive D2C en France &mdash; 9 blocs r&eacute;glementaires</p>
+        </div>
+
+        <div class="prose fade-in">
+            <p>Le cadre r&eacute;glementaire de l'huile d'olive est l'un des plus encadr&eacute;s de l'agroalimentaire europ&eacute;en. Pour un conditionneur-distributeur D2C bas&eacute; en France, <strong>neuf blocs r&eacute;glementaires</strong> s'appliquent simultan&eacute;ment.</p>
+            <p><strong>Co&ucirc;t de mise en conformit&eacute; estim&eacute; (1&egrave;re ann&eacute;e)</strong> : 3 500&ndash;9 000 &euro; sans certification bio. La certification bio ajoute 500&ndash;2 000 &euro;/an.</p>
+        </div>
+
+        <div class="table-wrapper fade-in">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Bloc</th>
+                        <th>Texte principal</th>
+                        <th>Obligation phare</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>Etiquetage</td><td>R. (UE) 2022/2104</td><td>11 mentions obligatoires + agr&eacute;ment FranceAgriMer</td></tr>
+                    <tr><td>Info conso e-com</td><td>R. (UE) 1169/2011 INCO</td><td>Toutes mentions sur page produit avant achat</td></tr>
+                    <tr><td>All&eacute;gations sant&eacute;</td><td>R. (UE) 432/2012</td><td>Seuil &ge;250 mg/kg + texte exact r&eacute;glement&eacute;</td></tr>
+                    <tr><td>Bio</td><td>R. (UE) 2018/848</td><td>3 ans conversion + OC agr&eacute;&eacute;</td></tr>
+                    <tr><td>Douanes hors UE</td><td>TARIC 1509</td><td>EUR.1 + certificat d'analyse &lt;3 mois</td></tr>
+                    <tr><td>AOP/IGP</td><td>R. (UE) 1151/2012</td><td>Cahier des charges INAO</td></tr>
+                    <tr><td>Emballage &amp; REP</td><td>Loi AGEC + D&eacute;cret 2021-835</td><td>Triman + Info-tri + adh&eacute;sion Citeo</td></tr>
+                    <tr><td>Hygi&egrave;ne &amp; HACCP</td><td>R. (CE) 852/2004</td><td>Plan de Ma&icirc;trise Sanitaire (PMS)</td></tr>
+                    <tr><td>Tra&ccedil;abilit&eacute;</td><td>R. (CE) 178/2002</td><td>&laquo; 1 pas en arri&egrave;re / 1 pas en avant &raquo;</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="divider-70s"><div class="diamond"></div></div>
+
+        <!-- Etiquetage -->
+        <div class="prose fade-in">
+            <h3>&Eacute;tiquetage &mdash; Les 11 mentions obligatoires</h3>
+            <p>Conform&eacute;ment au R&egrave;glement INCO 1169/2011 et au R&egrave;glement 2022/2104 :</p>
+        </div>
+
+        <div class="card-grid fade-in">
+            <div class="card">
+                <span class="card-tag">1&ndash;3</span>
+                <h3>D&eacute;nomination &amp; Quantit&eacute;</h3>
+                <p><strong>D&eacute;nomination l&eacute;gale</strong> : cat&eacute;gorie exacte (ex. : &laquo; Huile d'olive extra vierge &raquo;). <strong>D&eacute;finition</strong> de la cat&eacute;gorie. <strong>Quantit&eacute; nette</strong> en litres/cl/ml.</p>
+            </div>
+            <div class="card">
+                <span class="card-tag">4&ndash;5</span>
+                <h3>Origine &amp; DDM</h3>
+                <p><strong>Pays d'origine</strong> sur la face avant, m&ecirc;me police que la d&eacute;nomination. <strong>DDM</strong> : &laquo; &Agrave; consommer de pr&eacute;f&eacute;rence avant fin... &raquo;</p>
+            </div>
+            <div class="card">
+                <span class="card-tag">6&ndash;8</span>
+                <h3>Conservation &amp; Agr&eacute;ment</h3>
+                <p>&laquo; &Agrave; l'abri de la lumi&egrave;re et de la chaleur &raquo;. <strong>Nom + adresse</strong> du responsable. <strong>N&deg; agr&eacute;ment FranceAgriMer</strong> (sp&eacute;cifique France).</p>
+            </div>
+            <div class="card">
+                <span class="card-tag">9&ndash;11</span>
+                <h3>Lot, Nutrition, Tri</h3>
+                <p><strong>N&deg; de lot</strong> (ex. : L240901). <strong>D&eacute;claration nutritionnelle</strong> pour 100g. <strong>Logo Triman + Info-tri</strong> (loi AGEC).</p>
+            </div>
+        </div>
+
+        <!-- Categories -->
+        <div class="prose fade-in">
+            <h3>Cat&eacute;gories commerciales et seuils</h3>
+        </div>
+
+        <div class="table-wrapper fade-in">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Cat&eacute;gorie</th>
+                        <th>Acidit&eacute;</th>
+                        <th>Peroxyde</th>
+                        <th>Organoleptique</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>Extra vierge (EVOO)</td><td>&le; 0,8%</td><td>&lt; 20 mEq/kg</td><td>Note &ge; 6,5 ; 0 d&eacute;faut</td></tr>
+                    <tr><td>Vierge</td><td>&le; 2%</td><td>&le; 20 mEq/kg</td><td>L&eacute;ger d&eacute;faut possible</td></tr>
+                    <tr><td>Vierge courante</td><td>&le; 3,3%</td><td>&le; 20 mEq/kg</td><td>Note 3,5&ndash;5,5</td></tr>
+                    <tr><td>Lampante</td><td>&gt; 3,3%</td><td>&mdash;</td><td>Non comestible sans raffinage</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Polyphenols -->
+        <div class="prose fade-in">
+            <h3>All&eacute;gation sant&eacute; polyph&eacute;nols</h3>
+            <p>L'unique all&eacute;gation autoris&eacute;e (R. 432/2012) :</p>
+        </div>
+
+        <div class="pullquote fade-in">
+            <p>Les polyph&eacute;nols pr&eacute;sents dans l'huile d'olive contribuent &agrave; prot&eacute;ger les lipides sanguins contre le stress oxydatif.</p>
+            <cite>Texte exact r&eacute;glement&eacute; &mdash; Seuil : &ge;250 mg/kg &middot; Dose : 20g/jour</cite>
+        </div>
+
+        <!-- Bio -->
+        <div class="prose fade-in">
+            <h3>Certification bio &mdash; R. (UE) 2018/848</h3>
+            <p>P&eacute;riode de conversion : <strong>3 ans</strong> pour les oliviers (cultures p&eacute;rennes). Co&ucirc;t total premi&egrave;re ann&eacute;e : 800&ndash;2 250 &euro;.</p>
+        </div>
+
+        <div class="table-wrapper fade-in">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Poste de co&ucirc;t</th>
+                        <th>Fourchette</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>Audit annuel (OC)</td><td>400&ndash;1 200 &euro;/an</td></tr>
+                    <tr><td>Analyses labo (r&eacute;sidus)</td><td>150&ndash;400 &euro;/lot</td></tr>
+                    <tr><td>Transaction Certificate</td><td>50&ndash;150 &euro;/lot</td></tr>
+                    <tr><td>Formation &amp; documents</td><td>200&ndash;500 &euro; (une fois)</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Douanes -->
+        <div class="prose fade-in">
+            <h3>Douanes &amp; import</h3>
+            <p>Intra-UE : <strong>libre circulation totale, 0 &euro;</strong>. Hors UE sans accord : <strong>124,50 &euro;/100 kg</strong> (~1,24 &euro;/L). TVA : <strong>5,5%</strong> (taux r&eacute;duit alimentaire).</p>
+        </div>
+
+        <div class="table-wrapper fade-in">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Origine</th>
+                        <th>R&eacute;gime</th>
+                        <th>Droit applicable</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>Espagne, Italie, Gr&egrave;ce (UE)</td><td>Libre circulation</td><td>0 &euro;</td></tr>
+                    <tr><td>Maroc</td><td>Accord d'association</td><td>0 &euro; (sans quota)</td></tr>
+                    <tr><td>Tunisie (dans quota)</td><td>TRQ 09.4032</td><td>0 &euro; (56 700 t/an)</td></tr>
+                    <tr><td>Tunisie (hors quota)</td><td>Erga omnes</td><td>124,50 &euro;/100 kg</td></tr>
+                    <tr><td>Turquie</td><td>Contingent tarifaire</td><td>R&eacute;duit (quota)</td></tr>
+                    <tr><td>Autres pays tiers</td><td>Erga omnes</td><td>124,50 &euro;/100 kg</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- HACCP & Checklist -->
+        <div class="prose fade-in">
+            <h3>S&eacute;curit&eacute; alimentaire &amp; HACCP</h3>
+            <p>Le syst&egrave;me HACCP (R. 852/2004) est <strong>obligatoire</strong> pour tout exploitant. 7 principes : analyse des dangers, CCP, limites critiques, surveillance, actions correctives, v&eacute;rification, documentation.</p>
+            <p>Tra&ccedil;abilit&eacute; (R. 178/2002) : <strong>&laquo; un pas en arri&egrave;re, un pas en avant &raquo;</strong>. D&eacute;lai de r&eacute;ponse : &lt;4h pour amont/aval, &lt;24&ndash;48h pour interne.</p>
+        </div>
+
+        <div class="highlight-box fade-in">
+            <h4>Checklist conformit&eacute; &mdash; Avant la 1&egrave;re mise sur march&eacute;</h4>
+            <ul>
+                <li>Immatriculation SIREN/SIRET + TVA intracommunautaire</li>
+                <li>Agr&eacute;ment FranceAgriMer (d&eacute;lai 2&ndash;4 semaines)</li>
+                <li>11 mentions obligatoires v&eacute;rifi&eacute;es sur &eacute;tiquette</li>
+                <li>Triman + Info-tri sur bouteille et/ou carton</li>
+                <li>Certificat d'analyse physico-chimique (&lt;3 mois) par lot</li>
+                <li>Plan de Ma&icirc;trise Sanitaire r&eacute;dig&eacute;</li>
+                <li>Registre fournisseurs + registre clients</li>
+                <li>Toutes mentions sur chaque page produit e-commerce</li>
+                <li>CGV, mentions l&eacute;gales, politique RGPD sur le site</li>
+                <li>Adh&eacute;sion Citeo</li>
+            </ul>
+        </div>
+
+        <div class="prose fade-in">
+            <h3>Risques de conformit&eacute;</h3>
+        </div>
+
+        <div class="fade-in">
+            <div class="risk-card">
+                <div class="risk-icon">!</div>
+                <div class="risk-body">
+                    <h4>Absence n&deg; FranceAgriMer</h4>
+                    <p>Obligation sp&eacute;cifiquement fran&ccedil;aise, souvent m&eacute;connue des nouveaux entrants. Amende DGCCRF, retrait du march&eacute;.</p>
+                    <div class="risk-badges"><span class="risk-badge risk-high">Probabilit&eacute; &eacute;lev&eacute;e</span></div>
+                </div>
+            </div>
+            <div class="risk-card">
+                <div class="risk-icon">!</div>
+                <div class="risk-body">
+                    <h4>All&eacute;gation polyph&eacute;nols mal formul&eacute;e</h4>
+                    <p>Toute formulation autre que le texte exact r&eacute;glement&eacute; = infraction pratiques commerciales trompeuses.</p>
+                    <div class="risk-badges"><span class="risk-badge risk-medium">Probabilit&eacute; moyenne</span></div>
+                </div>
+            </div>
+            <div class="risk-card">
+                <div class="risk-icon">!</div>
+                <div class="risk-body">
+                    <h4>Mention r&eacute;gionale hors AOP</h4>
+                    <p>&laquo; Huile de Provence &raquo; sans AOP = non conforme. Uniquement pays ou AOP certifi&eacute;e.</p>
+                    <div class="risk-badges"><span class="risk-badge risk-medium">Probabilit&eacute; moyenne</span></div>
+                </div>
+            </div>
+            <div class="risk-card">
+                <div class="risk-icon">!</div>
+                <div class="risk-body">
+                    <h4>Absence Triman</h4>
+                    <p>Oubli fr&eacute;quent. V&eacute;rifier avant BAT imprimeur. Mise en demeure DGCCRF.</p>
+                    <div class="risk-badges"><span class="risk-badge risk-high">Probabilit&eacute; &eacute;lev&eacute;e</span></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ============ 10. BENCHMARK MARQUES ============ -->
+<section id="marques">
+    <div class="container">
+        <div class="section-header fade-in">
+            <span class="section-number">10</span>
+            <h2>Analyse de Marques</h2>
+            <div class="section-line"></div>
+            <p>Tenute Quattro &middot; Graza &middot; Viva Cento &mdash; trois approches, un m&ecirc;me segment premium D2C</p>
+        </div>
+
+        <div class="pullquote fade-in">
+            <p>L'espace premium D2C pour une huile d'olive de qualit&eacute; narrat&eacute;e est r&eacute;el, sous-occup&eacute; en France et en Europe, et les trois marques l'approchent par des angles radicalement diff&eacute;rents.</p>
+            <cite>Constat central &mdash; Phase 2</cite>
+        </div>
+
+        <!-- Tenute Quattro -->
+        <div class="card-grid fade-in">
+            <div class="card">
+                <span class="card-tag">Benchmark</span>
+                <h3>Tenute Quattro</h3>
+                <p><strong>Calabre, Italie &middot; 2021 &middot; D2C</strong></p>
+                <p>Produit unique &laquo; Terre di Cleta &raquo;. Flacon sculptural, v&eacute;rification ADN des oliviers (BioCos), 100% Nocellara Messina mono-cultivar, pressage &lt;6h.</p>
+                <p><strong>500 ml : 23 &euro;</strong> (46 &euro;/L) &middot; <strong>250 ml : 15 &euro;</strong> (60 &euro;/L)</p>
+                <p>2 M&eacute;dailles EVO IOOC cons&eacute;cutives. Storytelling mythologique (Amazone Cleta). Arch&eacute;type du producteur-artisan &rarr; marque premium D2C.</p>
+            </div>
+            <div class="card">
+                <span class="card-tag">$48M CA</span>
+                <h3>Graza</h3>
+                <p><strong>New York, USA &middot; 2022 &middot; D2C &rarr; Retail</strong></p>
+                <p>Squeeze bottle = innovation fonctionnelle US. CA : 4,4 M$ (2022) &rarr; 48,4 M$ (2024). 28 000 points de vente (Whole Foods, Safeway).</p>
+                <p><strong>28 $/500ml</strong> &mdash; mid-range am&eacute;ricain, pas premium europ&eacute;en.</p>
+                <p>Ph&eacute;nom&egrave;ne sp&eacute;cifiquement am&eacute;ricain. En France, l'EVOO est d&eacute;j&agrave; banalis&eacute; &mdash; le probl&egrave;me &agrave; r&eacute;soudre est diff&eacute;rent.</p>
+            </div>
+            <div class="card">
+                <span class="card-tag">Wellness</span>
+                <h3>Viva Cento</h3>
+                <p><strong>&Icirc;le de Man / UK &middot; ~2024 &middot; D2C</strong></p>
+                <p>Ne vend pas de l'huile &mdash; vend un <strong>rituel de sant&eacute; quotidien</strong>. Flacon noir opaque, angle biohacker, format shot 30ml.</p>
+                <p><strong>500 ml : 29,99 &pound;</strong> (~60 &pound;/L) &middot; <strong>Shots 5&times;30ml : 8,99 &pound;</strong></p>
+                <p>Limite : claims polyph&eacute;nols non quantifi&eacute;s, aucune certification. Promesse sans preuve &mdash; vuln&eacute;rable.</p>
+            </div>
+        </div>
+
+        <div class="prose fade-in">
+            <h3>L'espace strat&eacute;gique vacant</h3>
+        </div>
+
+        <div class="table-wrapper fade-in">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Dimension</th>
+                        <th>Tenute Quattro</th>
+                        <th>Graza</th>
+                        <th>Viva Cento</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>Angle</td><td>Terroir, art, mythologie</td><td>Fun, accessible, quotidien</td><td>Sant&eacute;, polyph&eacute;nols</td></tr>
+                    <tr><td>Cible</td><td>Gastronome, cadeau</td><td>Cuisinier US millennial</td><td>Biohacker</td></tr>
+                    <tr><td>March&eacute;</td><td>Italie D2C</td><td>USA retail</td><td>UK niche</td></tr>
+                    <tr><td>Prix/L</td><td>46&ndash;60 &euro;</td><td>~28 $/500ml</td><td>~60 &pound;/L</td></tr>
+                    <tr><td>Validation</td><td>ADN + m&eacute;dailles</td><td>Volume + retail</td><td>Claims sans donn&eacute;es</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="highlight-box fade-in">
+            <h4>Vide identifi&eacute; : premium D2C fran&ccedil;ais</h4>
+            <ul>
+                <li>Premium D2C France/Europe, ancr&eacute; terroir + tra&ccedil;abilit&eacute;, packaging diff&eacute;renciant, 40&ndash;60 &euro;/L</li>
+                <li>Les AOP fran&ccedil;aises ont le terroir mais pas le marketing</li>
+                <li>Ch&acirc;teau Estoublon a le positionnement mais un prix prohibitif (114 &euro;/L)</li>
+                <li>Ce segment est <strong>quasiment vierge en France</strong></li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<!-- ============ 11. BENCHMARK PRIX GMS ============ -->
+<section id="benchmark">
+    <div class="container">
+        <div class="section-header fade-in">
+            <span class="section-number">11</span>
+            <h2>Benchmark Prix GMS France</h2>
+            <div class="section-line"></div>
+            <p>Relev&eacute; complet avril 2026 &mdash; Intermarch&eacute;, Lidl, Leclerc, Carrefour, Monoprix, Amazon</p>
+        </div>
+
+        <!-- Synthese enseignes -->
+        <div class="table-wrapper fade-in">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Enseigne</th>
+                        <th>Entr&eacute;e &euro;/L</th>
+                        <th>VE standard</th>
+                        <th>VE bio</th>
+                        <th>Max rayon</th>
+                        <th>Positionnement</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>Intermarch&eacute;</td><td>4,99</td><td>9&ndash;11</td><td>12&ndash;15</td><td>18,65</td><td>Large spectre, BDG fort</td></tr>
+                    <tr><td>Lidl</td><td>5,49</td><td>9,3&ndash;9,9</td><td>10&ndash;10,7</td><td>13,98</td><td>BDG, qualit&eacute;/prix</td></tr>
+                    <tr><td>Leclerc</td><td>5,27</td><td>8,5&ndash;12</td><td>10,3&ndash;19,3</td><td>27,98</td><td>Large spectre</td></tr>
+                    <tr><td>Carrefour</td><td>7,99</td><td>9,5&ndash;13</td><td>11,5&ndash;15,3</td><td>27,98</td><td>Milieu-haut</td></tr>
+                    <tr><td>Monoprix</td><td>11,19</td><td>11,5&ndash;14</td><td>12&ndash;19,3</td><td>35,96</td><td>Urban premium</td></tr>
+                    <tr><td>Amazon.fr</td><td>15,00</td><td>15&ndash;25</td><td>16&ndash;28</td><td>83,10</td><td>Premium + artisan</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="pullquote fade-in">
+            <p>Le plafond GMS est de 20&ndash;28 &euro;/L (AOP/France). Amazon monte &agrave; 83 &euro;/L sur des artisans &eacute;trangers. Un produit fran&ccedil;ais artisanal &agrave; 45&ndash;60 &euro;/L sur Amazon est parfaitement l&eacute;gitime &mdash; et ce segment est occup&eacute; par des &eacute;trangers.</p>
+            <cite>Observation strat&eacute;gique</cite>
+        </div>
+
+        <!-- Detail par enseigne -->
+        <div class="prose fade-in">
+            <h3>Lidl &mdash; Leader entr&eacute;e de gamme qualit&eacute;</h3>
+            <p>Primadonna &agrave; 5,59&ndash;9,32 &euro;/L &eacute;lue meilleure huile par 60 Millions de Consommateurs &mdash; &laquo; seule sans polluant d&eacute;tect&eacute; &raquo;.</p>
+        </div>
+
+        <div class="table-wrapper fade-in">
+            <table>
+                <thead><tr><th>Marque</th><th>Format</th><th>Prix</th><th>&euro;/L</th><th>Type</th></tr></thead>
+                <tbody>
+                    <tr><td>Les Prix Sacr&eacute;s (MDD)</td><td>1 L</td><td>5,49 &euro;</td><td>5,49</td><td>VE</td></tr>
+                    <tr><td>Primadonna (promo XXL)</td><td>1,5 L</td><td>8,39 &euro;</td><td>5,59</td><td>VE</td></tr>
+                    <tr><td>Primadonna Bio</td><td>1 L</td><td>~9,99 &euro;</td><td>9,99</td><td>VE Bio</td></tr>
+                    <tr><td>Italiamo AOP Terra di Bari</td><td>500 ml</td><td>6,99 &euro;</td><td>13,98</td><td>VE AOP</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="prose fade-in">
+            <h3>Monoprix &mdash; Urban premium</h3>
+        </div>
+
+        <div class="table-wrapper fade-in">
+            <table>
+                <thead><tr><th>Marque</th><th>Format</th><th>Prix</th><th>&euro;/L</th><th>Type</th></tr></thead>
+                <tbody>
+                    <tr><td>Monoprix MDD</td><td>1 L</td><td>11,50 &euro;</td><td>11,50</td><td>VE</td></tr>
+                    <tr><td>Monoprix Bio MDD</td><td>750 ml</td><td>8,99 &euro;</td><td>11,99</td><td>VE Bio</td></tr>
+                    <tr><td>Carapelli Bio Vivace</td><td>750 ml</td><td>12,90 &euro;</td><td>17,20</td><td>VE Bio</td></tr>
+                    <tr><td>La Tourangelle Bio</td><td>750 ml</td><td>14,50 &euro;</td><td>19,33</td><td>VE Bio</td></tr>
+                    <tr><td>Monoprix Gourmet Truffe</td><td>250 ml</td><td>8,99 &euro;</td><td>35,96</td><td>VE Truffe</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="prose fade-in">
+            <h3>Amazon.fr &mdash; Canal des premiums</h3>
+        </div>
+
+        <div class="table-wrapper fade-in">
+            <table>
+                <thead><tr><th>Marque</th><th>Format</th><th>Prix</th><th>&euro;/L</th><th>Avis</th></tr></thead>
+                <tbody>
+                    <tr><td>La Tourangelle Bio</td><td>2&times;750ml</td><td>23,78 &euro;</td><td>15,85</td><td>4,4&star;/753</td></tr>
+                    <tr><td>Farchioni Il Casolare</td><td>2&times;1L</td><td>30,00 &euro;</td><td>15,00</td><td>4,4&star;/1058</td></tr>
+                    <tr><td>Le Terre di Colombo DOP</td><td>~500ml</td><td>24,94 &euro;</td><td>49,88</td><td>4,4&star;/545</td></tr>
+                    <tr><td>Koroneiki High Polyphenol</td><td>~500ml</td><td>39,78 &euro;</td><td>79,56</td><td>4,4&star;/115</td></tr>
+                    <tr><td>Raw Vibrant Living Bio</td><td>500 ml</td><td>41,55 &euro;</td><td>83,10</td><td>4,6&star;/138</td></tr>
+                    <tr><td>Belazu Early Harvest</td><td>500 ml</td><td>37,86 &euro;</td><td>75,72</td><td>4,6&star;/85</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Modele D2C -->
+        <div class="divider-70s"><div class="diamond"></div></div>
+
+        <div class="prose fade-in">
+            <h3>Mod&egrave;le D2C premium &mdash; &Eacute;conomie unitaire (500ml &agrave; 45 &euro;)</h3>
+        </div>
+
+        <div class="table-wrapper fade-in">
+            <table>
+                <thead><tr><th>Poste</th><th>Co&ucirc;t</th></tr></thead>
+                <tbody>
+                    <tr><td>Huile (monocultivar qualit&eacute;)</td><td>~5,00 &euro;</td></tr>
+                    <tr><td>Bouteille verre dark premium</td><td>~2,50&ndash;4,00 &euro;</td></tr>
+                    <tr><td>&Eacute;tiquetage + bouchon</td><td>~0,80 &euro;</td></tr>
+                    <tr><td>Co-packing</td><td>~1,50 &euro;</td></tr>
+                    <tr><td>Exp&eacute;dition/logistique</td><td>~4,00&ndash;6,00 &euro;</td></tr>
+                    <tr><td><strong>COGS total</strong></td><td><strong>~14&ndash;17 &euro;</strong></td></tr>
+                    <tr><td><strong>Marge brute</strong></td><td><strong>~62&ndash;70%</strong></td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="card-grid fade-in">
+            <div class="card">
+                <span class="card-tag">Levier 1</span>
+                <h3>Tra&ccedil;abilit&eacute; num&eacute;rique</h3>
+                <p>QR code sur chaque bouteille &rarr; page de r&eacute;colte (date, producteur, analyse polyph&eacute;nols). Co&ucirc;t : quasi nul. Impact : massif.</p>
+            </div>
+            <div class="card">
+                <span class="card-tag">Levier 2</span>
+                <h3>Polyph&eacute;nols document&eacute;s</h3>
+                <p>Afficher le mg/kg r&eacute;el (&gt;300 mg/kg = claims sant&eacute; UE). Analyses : 150&ndash;300 &euro;/lot.</p>
+            </div>
+            <div class="card">
+                <span class="card-tag">Levier 3</span>
+                <h3>Packaging narratif</h3>
+                <p>Verre ambr&eacute;, format 375/500ml, capsule m&eacute;tal. ~3&ndash;5 &euro;/bouteille &agrave; 5 000 unit&eacute;s.</p>
+            </div>
+            <div class="card">
+                <span class="card-tag">Levier 4</span>
+                <h3>Early harvest</h3>
+                <p>Positionnement &laquo; nouveau mill&eacute;sime &raquo; annuel comme le vin. Cr&eacute;e urgence et fid&eacute;lit&eacute;.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ============ 12. NON-ALIMENTAIRE ============ -->
+<section id="non-alimentaire">
+    <div class="container">
+        <div class="section-header fade-in">
+            <span class="section-number">12</span>
+            <h2>March&eacute;s Non-Alimentaires</h2>
+            <div class="section-line"></div>
+            <p>Cosm&eacute;tique, nutraceutique, pharmaceutique &mdash; plus de 15 milliards USD de march&eacute;s parall&egrave;les</p>
+        </div>
+
+        <div class="key-figures fade-in">
+            <div class="key-figure">
+                <div class="value">15,1 Mds $</div>
+                <div class="label">Cosm&eacute;tique olive 2024</div>
+            </div>
+            <div class="key-figure">
+                <div class="value">410 M$</div>
+                <div class="label">Polyph&eacute;nols d'olive</div>
+            </div>
+            <div class="key-figure">
+                <div class="value">751 M$</div>
+                <div class="label">Hydroxytyrosol</div>
+            </div>
+        </div>
+
+        <!-- Cosmetique -->
+        <div class="prose fade-in">
+            <h3>Beaut&eacute; &amp; Cosm&eacute;tique &mdash; Le plus grand march&eacute; parall&egrave;le</h3>
+            <p>Projection : <strong>23,22 Mds USD d'ici 2034</strong> (CAGR 4,37%). Le squalane d'olive (rempla&ccedil;ant du squal&egrave;ne de requin) est le produit phare : 230 M$ en 2026 &rarr; 448 M$ en 2036.</p>
+        </div>
+
+        <div class="table-wrapper fade-in">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Application</th>
+                        <th>Part march&eacute;</th>
+                        <th>Taille 2025</th>
+                        <th>Croissance</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>Skincare (soin peau)</td><td>38%</td><td>~6,0 Mds$</td><td>+5% CAGR</td></tr>
+                    <tr><td>Haircare (cheveux)</td><td>26%</td><td>~4,1 Mds$</td><td>+4,5% CAGR</td></tr>
+                    <tr><td>Cosm&eacute;tique (fond de teint...)</td><td>16%</td><td>~2,5 Mds$</td><td>+4% CAGR</td></tr>
+                    <tr><td>Massage &amp; Aromath&eacute;rapie</td><td>12%</td><td>~1,9 Mds$</td><td>+4% CAGR</td></tr>
+                    <tr><td>Pharma/Nutra (beaut&eacute;)</td><td>8%</td><td>~1,3 Mds$</td><td>+6% CAGR</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Nutraceutique -->
+        <div class="prose fade-in">
+            <h3>Nutraceutique &mdash; Polyph&eacute;nols &amp; mol&eacute;cules actives</h3>
+        </div>
+
+        <div class="table-wrapper fade-in">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Mol&eacute;cule</th>
+                        <th>Source</th>
+                        <th>Applications</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>Hydroxytyrosol</td><td>Olives/feuilles</td><td>Cardiovasculaire, anti-&acirc;ge, performance</td></tr>
+                    <tr><td>Oleurop&eacute;ine</td><td>Feuilles d'olivier</td><td>Anti-inflammatoire, antiviral</td></tr>
+                    <tr><td>Oleocanthal</td><td>EVOO</td><td>Anti-inflammatoire (ibuprofen-like)</td></tr>
+                    <tr><td>Oleacein</td><td>EVOO</td><td>Neuroprotection, cardiovasculaire</td></tr>
+                    <tr><td>Tyrosol</td><td>EVOO</td><td>Antioxydant g&eacute;n&eacute;ral</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="pullquote fade-in">
+            <p>Oleaphen (Chypre) a atteint 2 236 mg/kg de polyph&eacute;nols &mdash; 45&times; un EVOO standard. Le lot 2025&ndash;2026 s'est vendu en 6 semaines avec une liste d'attente.</p>
+            <cite>Cas d'usage ultra-premium polyph&eacute;nols</cite>
+        </div>
+
+        <!-- Approche cross-market -->
+        <div class="prose fade-in">
+            <h3>L'approche cross-market</h3>
+            <p>Construire une marque alimentaire premium, puis &eacute;tendre vers :</p>
+        </div>
+
+        <div class="card-grid fade-in">
+            <div class="card">
+                <span class="card-tag">Extension 1</span>
+                <h3>Suppl&eacute;ments</h3>
+                <p>Shots, capsules, stick packs. Tr&egrave;s faibles co&ucirc;ts de formulation si l'huile est d&eacute;j&agrave; de qualit&eacute;. Suppl&eacute;ments HT : 45&ndash;60 $/mois aux USA.</p>
+            </div>
+            <div class="card">
+                <span class="card-tag">Extension 2</span>
+                <h3>Cosm&eacute;tique</h3>
+                <p>S&eacute;rum, huile beaut&eacute;. M&ecirc;me emballage premium, m&ecirc;me storytelling terroir. Extension &agrave; faible co&ucirc;t de d&eacute;veloppement.</p>
+            </div>
+            <div class="card">
+                <span class="card-tag">Extension 3</span>
+                <h3>B2B Beaut&eacute;</h3>
+                <p>Fournir l'EVOO premium &agrave; des marques cosm&eacute;tiques recherchant une origine tra&ccedil;able. Mod&egrave;le CBD/chanvre transpos&eacute;.</p>
+            </div>
+        </div>
+
+        <!-- Matrice finale -->
+        <div class="divider-70s"><div class="diamond"></div></div>
+
+        <div class="prose fade-in">
+            <h3>Matrice d'opportunit&eacute;s r&eacute;sum&eacute;e</h3>
+        </div>
+
+        <div class="table-wrapper fade-in summary-table">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Opportunit&eacute;</th>
+                        <th>Taille</th>
+                        <th>CAGR</th>
+                        <th>Facilit&eacute;</th>
+                        <th>Priorit&eacute;</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>EVOO premium D2C France</td><td>~15 M&euro;</td><td>8%</td><td>&#9733;&#9733;&#9733;&#9733;</td><td><strong>1</strong></td></tr>
+                    <tr><td>EVOO artisan Amazon.fr/EU</td><td>~25 M&euro;</td><td>10%</td><td>&#9733;&#9733;&#9733;&#9733;&#9733;</td><td><strong>1</strong></td></tr>
+                    <tr><td>Box / abonnement olive oil</td><td>~5 M&euro;</td><td>15%</td><td>&#9733;&#9733;&#9733;&#9733;&#9733;</td><td><strong>2</strong></td></tr>
+                    <tr><td>Export premium Asie/USA</td><td>2,5 Mds$</td><td>7,4%</td><td>&#9733;&#9733;</td><td>3</td></tr>
+                    <tr><td>Cosm&eacute;tique EVOO (B2C)</td><td>15 Mds$</td><td>4,4%</td><td>&#9733;&#9733;&#9733;</td><td>3</td></tr>
+                    <tr><td>Suppl&eacute;ments polyph&eacute;nols</td><td>800 M$</td><td>8,7%</td><td>&#9733;&#9733;</td><td>4</td></tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</section>
+
 <!-- ============ FOOTER ============ -->
 <footer>
     <div class="container">
         <h3>L'Or Vert &mdash; &Eacute;tude de March&eacute; Huile d'Olive</h3>
         <p>Rapport r&eacute;dig&eacute; en avril 2026. Bas, moyen et haut de gamme. France &middot; Europe &middot; International.</p>
         <div class="source-list">
-            Sources : FranceAgriMer &middot; Conseil International de l'Olive (COI) &middot; Fortune Business Insights &middot; IMARC Group &middot; UFC-Que Choisir &middot; Wikifarmer &middot; Olive Oil Times &middot; Grand View Research &middot; IndexBox &middot; Market Research Future &middot; Ken Research
+            Sources : FranceAgriMer &middot; COI &middot; Fortune BI &middot; IMARC &middot; UFC-Que Choisir &middot; Wikifarmer &middot; Olive Oil Times &middot; Grand View Research &middot; IndexBox &middot; Market Research Future &middot; Ken Research &middot; EUR-Lex &middot; AFIDOL &middot; INAO &middot; Citeo &middot; CBI &middot; Zitouna Export &middot; Tenute Quattro &middot; Graza &middot; Viva Cento &middot; Global Growth Insights &middot; Market Intelo &middot; FactMr &middot; Oleaphen
         </div>
         <div class="copyright">&copy; 2026 &mdash; Design inspir&eacute; par l'esth&eacute;tique des ann&eacute;es 70</div>
     </div>
