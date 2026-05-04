@@ -1,0 +1,58 @@
+[
+  {
+    "criterion": "Harvest date",
+    "weight": 20,
+    "what_it_measures": "Freshness and probability of intact aromas",
+    "evidence_to_request": "Harvest year, bottling date, lot number",
+    "red_flags": "Only a distant best-before date, no harvest reference"
+  },
+  {
+    "criterion": "Olive category",
+    "weight": 18,
+    "what_it_measures": "Whether the oil is extra virgin, virgin, refined or blended",
+    "evidence_to_request": "Legal category on front or back label",
+    "red_flags": "Vague wording such as pure, light or premium without legal category"
+  },
+  {
+    "criterion": "Origin precision",
+    "weight": 14,
+    "what_it_measures": "Traceability beyond a broad marketing story",
+    "evidence_to_request": "Producer, region, estate, mill, PDO or country blend statement",
+    "red_flags": "Mediterranean blend with no practical traceability"
+  },
+  {
+    "criterion": "Sensory balance",
+    "weight": 14,
+    "what_it_measures": "Fruitiness, clean bitterness, clean pungency and absence of defects",
+    "evidence_to_request": "Tasting note, intensity scale, defect-free panel statement when available",
+    "red_flags": "Greasy, flat, rancid, winey, metallic or muddy aroma"
+  },
+  {
+    "criterion": "Packaging protection",
+    "weight": 10,
+    "what_it_measures": "Protection against light, oxygen and heat",
+    "evidence_to_request": "Dark glass, tin, bag-in-box, tight closure, small format if slow use",
+    "red_flags": "Clear bottle exposed to light or oversized bottle for slow household use"
+  },
+  {
+    "criterion": "Use fit",
+    "weight": 9,
+    "what_it_measures": "Whether intensity matches raw use, cooking, baking or finishing",
+    "evidence_to_request": "Suggested uses and intensity description",
+    "red_flags": "One bottle presented as perfect for every use"
+  },
+  {
+    "criterion": "Price coherence",
+    "weight": 8,
+    "what_it_measures": "Whether the price is credible for harvest, origin and packaging",
+    "evidence_to_request": "Price per liter, format, producer model, certification",
+    "red_flags": "Luxury claims with commodity-level proof, or suspiciously cheap extra virgin claims"
+  },
+  {
+    "criterion": "Responsible sourcing",
+    "weight": 7,
+    "what_it_measures": "Agronomic, environmental and social credibility",
+    "evidence_to_request": "Organic, regenerative, water, biodiversity or cooperative information",
+    "red_flags": "Sustainability vocabulary without any concrete practice"
+  }
+]

@@ -1,0 +1,9 @@
+criterion,weight,what_it_measures,evidence_to_request,red_flags
+Harvest date,20,Freshness and probability of intact aromas,"Harvest year, bottling date, lot number","Only a distant best-before date, no harvest reference"
+Olive category,18,"Whether the oil is extra virgin, virgin, refined or blended",Legal category on front or back label,"Vague wording such as pure, light or premium without legal category"
+Origin precision,14,Traceability beyond a broad marketing story,"Producer, region, estate, mill, PDO or country blend statement",Mediterranean blend with no practical traceability
+Sensory balance,14,"Fruitiness, clean bitterness, clean pungency and absence of defects","Tasting note, intensity scale, defect-free panel statement when available","Greasy, flat, rancid, winey, metallic or muddy aroma"
+Packaging protection,10,"Protection against light, oxygen and heat","Dark glass, tin, bag-in-box, tight closure, small format if slow use",Clear bottle exposed to light or oversized bottle for slow household use
+Use fit,9,"Whether intensity matches raw use, cooking, baking or finishing",Suggested uses and intensity description,One bottle presented as perfect for every use
+Price coherence,8,"Whether the price is credible for harvest, origin and packaging","Price per liter, format, producer model, certification","Luxury claims with commodity-level proof, or suspiciously cheap extra virgin claims"
+Responsible sourcing,7,"Agronomic, environmental and social credibility","Organic, regenerative, water, biodiversity or cooperative information",Sustainability vocabulary without any concrete practice
