@@ -25,23 +25,23 @@ HOME = {"fr": "index.html", "en": "index-en.html", "it": "index-it.html", "el": 
 
 # Curated, high-value guide slug bases (expanded to available languages).
 GUIDE_BASES = [
-    "boire-huile-olive-matin-jeun", "acide-oleique-bienfaits",
-    "acidite-huile-olive-explication", "biohacking-huile-olive-jeune-intermittent",
+    # rewritten in depth (authentic, evidence-based)
     "complete-guide-extra-virgin-olive-oil-for-health",
     "complete-guide-extra-virgin-olive-oil-in-cooking",
     "complete-guide-extra-virgin-olive-oil-for-the-face",
     "complete-guide-extra-virgin-olive-oil-for-hair",
-    "complete-guide-high-polyphenol-olive-oil-for-health",
-    "complete-guide-cold-pressed-olive-oil-for-the-face",
-    "complete-guide-unfiltered-olive-oil-for-the-face",
-    "complete-guide-organic-olive-oil-for-hair",
+    "complete-guide-cold-pressed-olive-oil-for-health",
+    "complete-guide-unfiltered-olive-oil-for-health",
+    "huile-olive-psoriasis-eczema", "huile-olive-contre-constipation",
+    "huile-olive-bebe-diversification", "boire-huile-olive-matin-jeun",
+    "acide-oleique-bienfaits", "acidite-huile-olive-explication",
 ]
-# Curated recipe slug bases.
+# Curated recipe slug bases (rewritten in depth first).
 RECIPE_BASES = [
     "salade-mechouia-tunisienne", "pesto-alla-genovese-maison", "carpaccio-boeuf-parmesan",
-    "salade-de-poulpe-traditionnelle", "aioli-maison-huile-olive", "bruschetta-tomate-basilic",
-    "falafels-four-huile-olive", "gazpacho-andalou-frais", "salade-grecque-authentique",
-    "panzanella-salade-pain", "salade-nicoise-authentique",
+    "salade-de-poulpe-traditionnelle", "falafels-four-huile-olive", "artichauts-a-la-romaine",
+    "aioli-maison-huile-olive", "bruschetta-tomate-basilic", "labneh-huile-olive-zaatar",
+    "gazpacho-andalou-frais", "salade-grecque-authentique", "salade-nicoise-authentique",
 ]
 LANGS = ("fr", "en", "it", "el")
 
