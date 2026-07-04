@@ -1,0 +1,201 @@
+# -*- coding: utf-8 -*-
+"""
+recipe_render.py -- shared renderer for authentic recipe rewrites.
+
+write_cluster(slug, content_by_lang) rewrites recipes/<slug>-<lang>.html for each
+language with clean SEO head (canonical + hreflang + OG/Twitter), authentic body,
+and Recipe + FAQPage + BreadcrumbList JSON-LD (validated). Sections keyed
+garnish/oven/variations/store are optional (rendered only when present).
+"""
+
+import os
+import re
+import json
+import html
+
+ROOT = os.path.dirname(os.path.abspath(__file__))
+SITE = "https://huiledefes.com"
+OG = f"{SITE}/assets/og-default.png"
+LOCALES = {"fr": "fr_FR", "en": "en_US", "it": "it_IT", "el": "el_GR"}
+LANGS = ("fr", "en", "it", "el")
+
+UI = {
+    "fr": dict(home="Accueil", crumb1="Recettes", nav="L'OR VERT / RECETTES",
+               also="À lire aussi", pillar="Huile d'olive : le guide pilier complet",
+               obs="Voir l'observatoire 2026", pillarhref="../huile-olive.html",
+               obshref="../observatoire-huile-olive-2026.html", idx="../index.html",
+               foot="Le carnet de référence de L'Or Vert sur l'huile d'olive, la cuisine méditerranéenne et les usages du quotidien.",
+               h_ing="Ingrédients", h_garn="Pour garnir", h_steps="Préparation pas à pas",
+               h_oven="Variante", h_oil="Le rôle de l'huile d'olive", h_tips="Astuces de réussite",
+               h_var="Variantes", h_serve="Comment la servir", h_store="Conservation",
+               h_faq="Questions fréquentes"),
+    "en": dict(home="Home", crumb1="Recipes", nav="L'OR VERT / RECIPES",
+               also="Related", pillar="Olive oil: the complete pillar guide",
+               obs="See the 2026 observatory", pillarhref="../olive-oil.html",
+               obshref="../olive-oil-observatory-2026.html", idx="../index-en.html",
+               foot="L'Or Vert's reference notebook on olive oil, Mediterranean cooking and everyday uses.",
+               h_ing="Ingredients", h_garn="To garnish", h_steps="Step-by-step method",
+               h_oven="Variation", h_oil="The role of olive oil", h_tips="Tips for success",
+               h_var="Variations", h_serve="How to serve it", h_store="Storage",
+               h_faq="Frequently asked questions"),
+    "it": dict(home="Home", crumb1="Ricette", nav="L'OR VERT / RICETTE",
+               also="Da leggere", pillar="Olio d'oliva: la guida pilastro completa",
+               obs="Vedi l'osservatorio 2026", pillarhref="../olio-oliva.html",
+               obshref="../osservatorio-olio-oliva-2026.html", idx="../index-it.html",
+               foot="Il taccuino di riferimento di L'Or Vert su olio d'oliva, cucina mediterranea e usi quotidiani.",
+               h_ing="Ingredienti", h_garn="Per guarnire", h_steps="Preparazione passo passo",
+               h_oven="Variante", h_oil="Il ruolo dell'olio d'oliva", h_tips="Trucchi per riuscirci",
+               h_var="Varianti", h_serve="Come servirla", h_store="Conservazione",
+               h_faq="Domande frequenti"),
+    "el": dict(home="Αρχική", crumb1="Συνταγές", nav="L'OR VERT / ΣΥΝΤΑΓΕΣ",
+               also="Δείτε επίσης", pillar="Ελαιόλαδο: ο πλήρης κεντρικός οδηγός",
+               obs="Δείτε το παρατηρητήριο 2026", pillarhref="../elaio-lado.html",
+               obshref="../paratiritirio-elaio-lado-2026.html", idx="../index-el.html",
+               foot="Το σημειωματάριο αναφοράς του L'Or Vert για το ελαιόλαδο, τη μεσογειακή κουζίνα και την καθημερινή χρήση.",
+               h_ing="Υλικά", h_garn="Για γαρνίρισμα", h_steps="Εκτέλεση βήμα προς βήμα",
+               h_oven="Παραλλαγή", h_oil="Ο ρόλος του ελαιόλαδου", h_tips="Μυστικά επιτυχίας",
+               h_var="Παραλλαγές", h_serve="Πώς σερβίρεται", h_store="Διατήρηση",
+               h_faq="Συχνές ερωτήσεις"),
+}
+
+
+def esc(s):
+    return html.escape(s, quote=True)
+
+
+def _li(items):
+    return "\n".join(f"            <li>{x}</li>" for x in items)
+
+
+def _section(title, html_body):
+    return f"\n        <h2>{esc(title)}</h2>\n        {html_body}"
+
+
+def render(slug, lang, d):
+    ui = UI[lang]
+    url = f"{SITE}/recipes/{slug}-{lang}.html"
+    alts = "\n    ".join(
+        f'<link rel="alternate" hreflang="{lg}" href="{SITE}/recipes/{slug}-{lg}.html" />'
+        for lg in LANGS)
+
+    recipe = {
+        "@context": "https://schema.org/", "@type": "Recipe",
+        "name": d["schema_name"],
+        "author": {"@type": "Organization", "name": "L'Or Vert", "@id": f"{SITE}/#organization"},
+        "publisher": {"@type": "Organization", "name": "L'Or Vert", "url": SITE},
+        "datePublished": "2026-05-04", "dateModified": "2026-07-04",
+        "description": d["schema_desc"], "image": OG,
+        "recipeCuisine": d["cuisine"], "recipeCategory": d["category"],
+        "prepTime": d["prep"], "cookTime": d["cook"], "totalTime": d["total"],
+        "recipeYield": d["yield_"],
+        "recipeIngredient": d["schema_ing"],
+        "recipeInstructions": [{"@type": "HowToStep", "text": s} for s in d["schema_steps"]],
+        "keywords": d["keywords"], "inLanguage": lang, "mainEntityOfPage": url,
+    }
+    if d.get("nutrition"):
+        recipe["nutrition"] = dict({"@type": "NutritionInformation"}, **d["nutrition"])
+    faqpage = {
+        "@context": "https://schema.org", "@type": "FAQPage",
+        "mainEntity": [{"@type": "Question", "name": q,
+                        "acceptedAnswer": {"@type": "Answer", "text": a}} for q, a in d["faqs"]],
+    }
+    crumbs = {
+        "@context": "https://schema.org", "@type": "BreadcrumbList",
+        "itemListElement": [
+            {"@type": "ListItem", "position": 1, "name": ui["home"], "item": f"{SITE}/{ui['idx'][3:]}"},
+            {"@type": "ListItem", "position": 2, "name": ui["crumb1"], "item": url},
+            {"@type": "ListItem", "position": 3, "name": d["h1"], "item": url},
+        ],
+    }
+
+    def hdr(key, uikey):
+        return esc(d.get(key) or ui[uikey])
+
+    body = []
+    body.append(f'<div class="callout">{d["info"]}</div>')
+    body.append(f'<p class="intro">{d["intro"]}</p>')
+    body.append(f'\n        <h2>{hdr("ing_h","h_ing")}</h2>\n        <ul>\n{_li(d["ingredients"])}\n        </ul>')
+    if d.get("garnish"):
+        body.append(f'        <h3>{hdr("garn_h","h_garn")}</h3>\n        <ul>\n{_li(d["garnish"])}\n        </ul>')
+    body.append(f'\n        <h2>{hdr("steps_h","h_steps")}</h2>\n        <ol>\n{_li(d["steps"])}\n        </ol>')
+    if d.get("oven"):
+        body.append(f'        <h2>{hdr("oven_h","h_oven")}</h2>\n        <p>{d["oven"]}</p>')
+    body.append(f'        <h2>{hdr("oil_h","h_oil")}</h2>\n        <p>{d["oil"]}</p>')
+    body.append(f'        <h2>{hdr("tips_h","h_tips")}</h2>\n        <ul>\n{_li(d["tips"])}\n        </ul>')
+    if d.get("variations"):
+        body.append(f'        <h2>{hdr("var_h","h_var")}</h2>\n        <ul>\n{_li(d["variations"])}\n        </ul>')
+    body.append(f'        <h2>{hdr("serve_h","h_serve")}</h2>\n        <p>{esc(d["serve"])}</p>')
+    if d.get("store"):
+        body.append(f'        <h2>{hdr("store_h","h_store")}</h2>\n        <p>{esc(d["store"])}</p>')
+    faq_html = "\n".join(f'        <h3>{esc(q)}</h3>\n        <p>{esc(a)}</p>' for q, a in d["faqs"])
+    body.append(f'        <h2>{hdr("faq_h","h_faq")}</h2>\n{faq_html}')
+    body_html = "\n".join(body)
+
+    out = f"""<!DOCTYPE html>
+<html lang="{lang}">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{esc(d['title'])}</title>
+    <meta name="description" content="{esc(d['desc'])}">
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%232E4A40'/%3E%3Cpath fill='%23F2D8C4' d='M16 5.5S9.5 14 9.5 19a6.5 6.5 0 0013 0c0-5-6.5-13.5-6.5-13.5z'/%3E%3C/svg%3E" type="image/svg+xml">
+    <link rel="stylesheet" href="../assets/seo.css">
+    <link rel="canonical" href="{url}" />
+    {alts}
+    <link rel="alternate" hreflang="x-default" href="{SITE}/recipes/{slug}-en.html" />
+    <meta property="og:title" content="{esc(d['title'])}" />
+    <meta property="og:description" content="{esc(d['desc'])}" />
+    <meta property="og:url" content="{url}" />
+    <meta property="og:type" content="article" />
+    <meta property="og:site_name" content="L'Or Vert" />
+    <meta property="og:locale" content="{LOCALES[lang]}" />
+    <meta property="og:image" content="{OG}" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="{esc(d['title'])}" />
+    <meta name="twitter:description" content="{esc(d['desc'])}" />
+    <meta name="twitter:image" content="{OG}" />
+    <script type="application/ld+json">{json.dumps(recipe, ensure_ascii=False, indent=2)}</script>
+    <script type="application/ld+json">{json.dumps(faqpage, ensure_ascii=False, indent=2)}</script>
+    <script type="application/ld+json">{json.dumps(crumbs, ensure_ascii=False, indent=2)}</script>
+</head>
+<body>
+<nav class="site-nav"><div class="container"><a href="{ui['idx']}" class="logo">{esc(ui['nav'])}</a></div></nav>
+<header class="page-hero" style="background: linear-gradient(135deg, var(--avocado) 0%, var(--sage) 100%);">
+    <div class="container">
+        <div class="breadcrumb"><a href="{ui['idx']}">{esc(ui['home'])}</a> &raquo; {esc(ui['crumb1'])}</div>
+        <h1>{esc(d['h1'])}</h1>
+        <p class="lede">{esc(d['lede'])}</p>
+    </div>
+</header>
+<main class="container">
+    <article class="guide">
+        {body_html}
+
+        <div class="pillar-linkbox">
+            <strong>{esc(ui['also'])}</strong>
+            <a href="{ui['pillarhref']}">{esc(ui['pillar'])}</a>
+            <a href="{ui['obshref']}">{esc(ui['obs'])}</a>
+        </div>
+    </article>
+</main>
+<footer class="site-footer"><div class="container"><h3>L'Or Vert</h3><p>{esc(ui['foot'])}</p><div class="copyright">&copy; 2026 — L'Or Vert</div></div></footer>
+</body>
+</html>
+"""
+    # validate JSON-LD
+    for m in re.findall(r'<script[^>]*ld\+json[^>]*>(.*?)</script>', out, re.S):
+        json.loads(m)
+    return out
+
+
+def write_cluster(slug, content_by_lang):
+    n = 0
+    for lang, d in content_by_lang.items():
+        path = os.path.join(ROOT, "recipes", f"{slug}-{lang}.html")
+        with open(path, "w", encoding="utf-8") as f:
+            f.write(render(slug, lang, d))
+        n += 1
+    print(f"  {slug}: wrote {n} langs")
+    return n
