@@ -1,3 +1,5 @@
 
 # gstack browse daemon state (local only)
 .gstack/
+__pycache__/
+*.pyc
