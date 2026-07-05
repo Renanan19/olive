@@ -134,6 +134,11 @@ def main():
 
     P.append("\n## Durabilité & dégustation / Sustainability & tasting")
     P.append("*Sujets les plus cités par les moteurs de réponse IA / Topics most cited by AI answer engines.*")
+    for slug in ("sustainable-olive-oil", "huile-olive-durable",
+                 "olio-oliva-sostenibile", "viosimo-elaiolado"):
+        ln = line(f"{slug}.html")
+        if ln:
+            P.append(ln)
     for base in ("oleiculture-durable", "certifications-bio-huile-olive",
                  "notes-degustation-huile-olive", "organiser-degustation-huile-olive-maison"):
         for lg in LANGS:

@@ -24,6 +24,10 @@ L'Or Vert publie une méthode d'évaluation transparente de la qualité de l'hui
 
 ## Durabilité & dégustation / Sustainability & tasting
 *Sujets les plus cités par les moteurs de réponse IA / Topics most cited by AI answer engines.*
+- [Sustainable Olive Oil: the complete guide (how to identify it, certifications, impact)](https://huiledefes.com/sustainable-olive-oil.html): The complete guide to sustainable olive oil: a clear definition, a step-by-step method to determine if an olive oil is sustainable, the certifications that matter, the real environmental impact, and how olive oil compares with other fats.
+- [Huile d'olive durable : le guide complet (reconnaître, certifications, impact)](https://huiledefes.com/huile-olive-durable.html): Le guide complet de l'huile d'olive durable : définition claire, méthode pas à pas pour savoir si une huile est durable, certifications qui comptent, véritable impact environnemental, et comparaison avec les autres matières grasses.
+- [Olio d'oliva sostenibile: la guida completa (riconoscerlo, certificazioni, impatto)](https://huiledefes.com/olio-oliva-sostenibile.html): La guida completa all'olio d'oliva sostenibile: definizione chiara, metodo passo passo per capire se un olio è sostenibile, certificazioni che contano, reale impatto ambientale e confronto con altri grassi.
+- [Βιώσιμο ελαιόλαδο: ο πλήρης οδηγός (αναγνώριση, πιστοποιήσεις, αποτύπωμα)](https://huiledefes.com/viosimo-elaiolado.html): Ο πλήρης οδηγός για το βιώσιμο ελαιόλαδο: σαφής ορισμός, μέθοδος βήμα-βήμα για να καταλάβετε αν ένα ελαιόλαδο είναι βιώσιμο, πιστοποιήσεις που μετρούν, πραγματικό περιβαλλοντικό αποτύπωμα και σύγκριση με άλλα λίπη.
 - [Huile d'olive durable : comment la reconnaître, certifications et impact environnemental](https://huiledefes.com/blog/oleiculture-durable-fr.html): Comment savoir si une huile d'olive est durable : définition claire, check-list d'achat, certifications clés (bio, AOP, Rainforest Alliance) et véritable impact environnemental de l'oléiculture.
 - [Sustainable Olive Oil: how to identify it, certifications and environmental impact](https://huiledefes.com/blog/oleiculture-durable-en.html): How to determine if olive oil is sustainable: a clear definition, a buyer's checklist, the key certifications (organic, PDO, Rainforest Alliance), and the real environmental impact of olive farming.
 - [Olio d'oliva sostenibile: come riconoscerlo, certificazioni e impatto ambientale](https://huiledefes.com/blog/oleiculture-durable-it.html): Come capire se un olio d'oliva è sostenibile: definizione chiara, checklist d'acquisto, certificazioni chiave (bio, DOP, Rainforest Alliance) e reale impatto ambientale dell'olivicoltura.
@@ -257,5 +261,5 @@ L'Or Vert publie une méthode d'évaluation transparente de la qualité de l'hui
 - [Le 10 Migliori Varietà di Olive — Blog L'Or Vert](https://huiledefes.com/blog/varietes-olives-mondiales-it.html): Le 10 Migliori Varietà di Olive: guida approfondita con criteri pratici, esempi, errori, decisioni e competenza sull'olio d'oliva.
 
 ## Optional
-- [Sitemap complet (2372 pages)](https://huiledefes.com/sitemap.xml): index exhaustif de tous les guides, recettes et articles dans les 4 langues.
+- [Sitemap complet (2376 pages)](https://huiledefes.com/sitemap.xml): index exhaustif de tous les guides, recettes et articles dans les 4 langues.
 - [robots.txt](https://huiledefes.com/robots.txt): crawl autorisé pour GPTBot, ChatGPT-User, Claude-Web, Anthropic-ai, PerplexityBot, Google-Extended, CCBot.
