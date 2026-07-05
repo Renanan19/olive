@@ -65,40 +65,39 @@
     <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%232E4A40'/%3E%3Cpath fill='%23F2D8C4' d='M16 5.5S9.5 14 9.5 19a6.5 6.5 0 0013 0c0-5-6.5-13.5-6.5-13.5z'/%3E%3C/svg%3E" type="image/svg+xml">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Serif+Display:ital@0;1&family=Space+Mono:wght@400;700&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400&family=Hanken+Grotesk:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
     <style>
         /* ========================================
            70s DESIGN SYSTEM — OLIVE OIL EDITION
            ======================================== */
 
         :root {
-            /* --- Palette 70s (evite brun+or type livraison) --- */
-            --text-ink:       #2A2320;      /* encre chaude, corps de texte */
-            --pine:           #2E4A40;      /* vert sapin / cuisine avocat fonce */
-            --avocado:        #5F8F6A;      /* avocat adouci, moins jaune */
-            --avocado-dark:   #3D5C4A;      /* avocat profond */
-            --peach-glow:     #F2D8C4;      /* peche creme sur fond fonce (pas or UPS) */
-            --apricot:        #E8B596;      /* abricot 70s */
-            --burnt-orange:   #C75C33;      /* orange brique */
-            --burnt-sienna:   #B54D2E;
-            --terracotta:     #D97254;
-            --dusty-mauve:    #B87A8A;      /* mauve poussiere typique 70s */
-            --olive-brown:    #4E5848;      /* mousse / kaki vert, pas brun UPS */
-            --cream:          #F5EBDD;
-            --parchment:      #E8DFD0;
-            --warm-white:     #FAF5EC;
-            --deep-brown:     #2A2320;      /* alias encre (ombres, details) */
-            --mustard:        #C9A227;      /* moutarde assourdie */
-            --sage:           #8FA897;
-            --olive-green:    #4D7358;
-            --rust:           #A84328;
-            /* Accents retro (remplacent l'or sur brun) */
+            /* --- Palette: Venice-tier bone / ink / restrained olive --- */
+            --text-ink:       #1C1E18;
+            --pine:           #33402E;
+            --avocado:        #5E7049;
+            --avocado-dark:   #2C3826;
+            --peach-glow:     #F3EFE4;
+            --apricot:        #CBB68A;
+            --burnt-orange:   #A6742E;
+            --burnt-sienna:   #8A6A2A;
+            --terracotta:     #A6742E;
+            --dusty-mauve:    #9A8A76;
+            --olive-brown:    #4A5240;
+            --cream:          #FAF7EF;
+            --parchment:      #F1ECE0;
+            --warm-white:     #FFFFFF;
+            --deep-brown:     #1C1E18;
+            --mustard:        #B08A3A;
+            --sage:           #8A9A7E;
+            --olive-green:    #5E7049;
+            --rust:           #7A5A28;
             --harvest-gold:   var(--peach-glow);
 
-            /* --- Typo --- */
-            --font-display: 'DM Serif Display', serif;
-            --font-body: 'Libre Baskerville', serif;
-            --font-mono: 'Space Mono', monospace;
+            /* --- Typo: Fraunces × Hanken Grotesk --- */
+            --font-display: 'Fraunces', Georgia, serif;
+            --font-body: 'Hanken Grotesk', system-ui, -apple-system, sans-serif;
+            --font-mono: 'Hanken Grotesk', ui-monospace, monospace;
 
             /* --- Spacing 8px grid --- */
             --sp-1: 8px;
@@ -215,14 +214,10 @@
            ======================================== */
         .hero {
             background: linear-gradient(
-                155deg,
-                #2a453c 0%,
-                #3d6b55 22%,
-                #5a8f72 42%,
-                #c0644a 62%,
-                #d4896a 78%,
-                #e8b596 92%,
-                #f0d8c4 100%
+                160deg,
+                #2C3826 0%,
+                #33402E 55%,
+                #3B4A31 100%
             );
             padding: var(--sp-16) 0 var(--sp-12);
             text-align: center;
@@ -254,7 +249,7 @@
             position: absolute;
             bottom: -2px; left: 0; right: 0;
             height: 60px;
-            background: url("data:image/svg+xml,%3Csvg viewBox='0 0 1200 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 60 C200 0 400 0 600 60 C800 0 1000 0 1200 60 L1200 60 L0 60Z' fill='%23F5EBDD'/%3E%3C/svg%3E") no-repeat bottom center;
+            background: url("data:image/svg+xml,%3Csvg viewBox='0 0 1200 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 60 C200 0 400 0 600 60 C800 0 1000 0 1200 60 L1200 60 L0 60Z' fill='%23FAF7EF'/%3E%3C/svg%3E") no-repeat bottom center;
             background-size: cover;
         }
 
@@ -266,7 +261,8 @@
             z-index: 1;
             line-height: 1.1;
             margin-bottom: var(--sp-3);
-            text-shadow: 3px 3px 0 rgba(0,0,0,0.3);
+            letter-spacing: -0.02em;
+            font-weight: 500;
         }
 
         .hero .subtitle {
@@ -406,13 +402,13 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            box-shadow: 6px 6px 0 var(--olive-brown);
+            box-shadow: 0 12px 30px -14px rgba(28,30,24,.20);
             transition: transform 0.3s, box-shadow 0.3s;
         }
 
         .key-figure:hover {
             transform: translate(-3px, -3px);
-            box-shadow: 9px 9px 0 var(--olive-brown);
+            box-shadow: 0 12px 30px -14px rgba(28,30,24,.20);
         }
 
         .key-figure .value {
@@ -439,7 +435,7 @@
             overflow-x: auto;
             margin: var(--sp-4) 0;
             border-radius: 12px;
-            box-shadow: 4px 4px 0 var(--olive-brown);
+            box-shadow: 0 12px 30px -14px rgba(28,30,24,.20);
         }
 
         table {
@@ -502,13 +498,13 @@
             border: 2px solid var(--olive-brown);
             border-radius: 16px;
             padding: var(--sp-4);
-            box-shadow: 4px 4px 0 var(--olive-brown);
+            box-shadow: 0 12px 30px -14px rgba(28,30,24,.20);
             transition: transform 0.3s, box-shadow 0.3s;
         }
 
         .card:hover {
             transform: translate(-2px, -2px);
-            box-shadow: 6px 6px 0 var(--olive-brown);
+            box-shadow: 0 12px 30px -14px rgba(28,30,24,.20);
         }
 
         .card h3 {
@@ -546,7 +542,7 @@
             margin: var(--sp-4) 0;
             border-radius: 12px;
             overflow: hidden;
-            box-shadow: 4px 4px 0 var(--olive-brown);
+            box-shadow: 0 12px 30px -14px rgba(28,30,24,.20);
         }
 
         .segment-strip .strip-label {
@@ -606,7 +602,7 @@
             margin: var(--sp-6) 0;
             text-align: center;
             position: relative;
-            box-shadow: 6px 6px 0 var(--dusty-mauve);
+            box-shadow: 0 12px 30px -14px rgba(28,30,24,.20);
         }
 
         .pullquote::before {
@@ -712,7 +708,7 @@
             border-radius: 0 12px 12px 0;
             padding: var(--sp-3);
             margin-bottom: var(--sp-2);
-            box-shadow: 3px 3px 0 rgba(78,88,72,0.22);
+            box-shadow: 0 12px 30px -14px rgba(28,30,24,.20);
         }
 
         .risk-card .risk-icon {
@@ -911,7 +907,7 @@
             border-radius: 12px;
             padding: var(--sp-3);
             text-align: center;
-            box-shadow: 3px 3px 0 rgba(77,115,88,0.35);
+            box-shadow: 0 12px 30px -14px rgba(28,30,24,.20);
         }
 
         .aop-card h4 {
@@ -965,7 +961,7 @@
             padding: var(--sp-4);
             border-radius: 12px;
             margin: var(--sp-4) 0;
-            box-shadow: 4px 4px 0 var(--dusty-mauve);
+            box-shadow: 0 12px 30px -14px rgba(28,30,24,.20);
         }
 
         .highlight-box h4 {
@@ -1032,6 +1028,24 @@
             opacity: 1;
             transform: translateY(0);
         }
+
+        /* --- Floating actions, search overlay, progress (Venice) --- */
+        #progress-bar { position: fixed; top: 0; left: 0; height: 3px; background: var(--avocado); z-index: 1001; width: 0; transition: width .1s; }
+        .floating-actions { position: fixed; bottom: var(--sp-4); right: var(--sp-4); display: flex; flex-direction: column; gap: var(--sp-1); z-index: 900; }
+        .float-btn { width: 46px; height: 46px; border-radius: 50%; background: var(--warm-white); color: var(--pine); border: 1px solid var(--parchment); cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: 1.1rem; box-shadow: 0 8px 24px -10px rgba(28,30,24,.25); transition: transform .2s ease; }
+        .float-btn:hover { transform: translateY(-2px); }
+        #search-overlay { position: fixed; inset: 0; background: rgba(28,30,24,.42); -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px); z-index: 2000; display: none; align-items: flex-start; justify-content: center; padding-top: 12vh; }
+        #search-overlay.active { display: flex; }
+        .search-modal { width: 92%; max-width: 720px; background: var(--warm-white); padding: var(--sp-5); border: 1px solid var(--parchment); border-radius: 14px; box-shadow: 0 30px 60px -20px rgba(28,30,24,.4); position: relative; }
+        .search-header-label { font-family: var(--font-body); font-size: .68rem; text-transform: uppercase; letter-spacing: .16em; color: var(--avocado); margin-bottom: var(--sp-2); display: block; }
+        .search-input { width: 100%; border: none; border-bottom: 1px solid var(--parchment); background: transparent; font-family: var(--font-display); font-weight: 500; font-size: clamp(1.4rem,4vw,2.2rem); color: var(--text-ink); padding: var(--sp-2) 0; outline: none; }
+        .search-input::placeholder { color: var(--sage); }
+        #search-results { margin-top: var(--sp-4); max-height: 52vh; overflow-y: auto; }
+        .search-result-item { display: block; padding: var(--sp-2) var(--sp-3); border-radius: 10px; text-decoration: none; transition: background .2s; }
+        .search-result-item:hover { background: var(--parchment); }
+        .search-result-title { font-family: var(--font-display); font-weight: 500; font-size: 1.1rem; color: var(--text-ink); display: block; }
+        .search-result-meta { font-family: var(--font-body); font-size: .66rem; color: var(--sage); text-transform: uppercase; letter-spacing: .1em; }
+        #search-close { position: absolute; top: var(--sp-3); right: var(--sp-3); background: var(--parchment); color: var(--text-ink); border: none; width: 36px; height: 36px; border-radius: 50%; cursor: pointer; font-size: 1rem; }
     </style>
 
     <link rel="alternate" hreflang="fr" href="https://huiledefes.com/index.html" />
@@ -1092,7 +1106,7 @@
 
 <div id="search-overlay">
     <div class="search-modal">
-        <span class="search-header-label">Index de l'Or Vert — 1970 Edition</span>
+        <span class="search-header-label">Index de l'Or Vert</span>
         <button id="search-close" title="Fermer">✕</button>
         <input type="text" class="search-input" id="search-input" placeholder="Commencez à taper...">
         <div id="search-results"></div>
