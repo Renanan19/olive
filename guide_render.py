@@ -55,11 +55,13 @@ def esc(s):
     return html.escape(s, quote=True)
 
 
-def render(slug, lang, d):
-    ui = UI[lang]
-    url = f"{SITE}/guides/{slug}-{lang}.html"
+def render(slug, lang, d, subdir="guides"):
+    ui = dict(UI[lang])
+    if d.get("crumb1"):
+        ui["crumb1"] = d["crumb1"]
+    url = f"{SITE}/{subdir}/{slug}-{lang}.html"
     alts = "\n    ".join(
-        f'<link rel="alternate" hreflang="{lg}" href="{SITE}/guides/{slug}-{lg}.html" />'
+        f'<link rel="alternate" hreflang="{lg}" href="{SITE}/{subdir}/{slug}-{lg}.html" />'
         for lg in LANGS)
 
     article = {
@@ -111,7 +113,7 @@ def render(slug, lang, d):
     <link rel="stylesheet" href="../assets/seo.css">
     <link rel="canonical" href="{url}" />
     {alts}
-    <link rel="alternate" hreflang="x-default" href="{SITE}/guides/{slug}-en.html" />
+    <link rel="alternate" hreflang="x-default" href="{SITE}/{subdir}/{slug}-en.html" />
     <meta property="og:title" content="{esc(d['title'])}" />
     <meta property="og:description" content="{esc(d['desc'])}" />
     <meta property="og:url" content="{url}" />
@@ -158,12 +160,12 @@ def render(slug, lang, d):
     return out
 
 
-def write_guide_cluster(slug, content_by_lang):
+def write_guide_cluster(slug, content_by_lang, subdir="guides"):
     n = 0
     for lang, d in content_by_lang.items():
-        path = os.path.join(ROOT, "guides", f"{slug}-{lang}.html")
+        path = os.path.join(ROOT, subdir, f"{slug}-{lang}.html")
         with open(path, "w", encoding="utf-8") as f:
-            f.write(render(slug, lang, d))
+            f.write(render(slug, lang, d, subdir))
         n += 1
-    print(f"  {slug}: wrote {n} langs")
+    print(f"  {subdir}/{slug}: wrote {n} langs")
     return n

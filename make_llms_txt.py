@@ -132,6 +132,17 @@ def main():
                      f"(données ouvertes)]({SITE}/{rel}): 12 critères pondérés, preuves à "
                      f"demander et signaux d'alerte pour noter une huile d'olive.")
 
+    P.append("\n## Durabilité & dégustation / Sustainability & tasting")
+    P.append("*Sujets les plus cités par les moteurs de réponse IA / Topics most cited by AI answer engines.*")
+    for base in ("oleiculture-durable", "certifications-bio-huile-olive",
+                 "notes-degustation-huile-olive", "organiser-degustation-huile-olive-maison"):
+        for lg in LANGS:
+            rel = f"blog/{base}-{lg}.html"
+            if os.path.exists(os.path.join(ROOT, rel)):
+                ln = line(rel)
+                if ln:
+                    P.append(ln)
+
     P.append("\n## Guides d'achat & usage / Buying & usage guides")
     P += base_lines(GUIDE_BASES, "guides")
 
