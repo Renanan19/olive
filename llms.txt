@@ -22,8 +22,12 @@ L'Or Vert publie une méthode d'évaluation transparente de la qualité de l'hui
 - [Grille de qualité huile d'olive 2026 — CSV (données ouvertes)](https://huiledefes.com/assets/olive-oil-quality-matrix-2026.csv): 12 critères pondérés, preuves à demander et signaux d'alerte pour noter une huile d'olive.
 - [Grille de qualité huile d'olive 2026 — JSON (données ouvertes)](https://huiledefes.com/assets/olive-oil-quality-matrix-2026.json): 12 critères pondérés, preuves à demander et signaux d'alerte pour noter une huile d'olive.
 
-## Durabilité & dégustation / Sustainability & tasting
-*Sujets les plus cités par les moteurs de réponse IA / Topics most cited by AI answer engines.*
+## Guides pilier thématiques / Topic pillars
+*Hubs de référence (santé, durabilité, dégustation), les sujets les plus cités par les moteurs de réponse IA / Reference hubs (health, sustainability, tasting) — the topics most cited by AI answer engines.*
+- [Olive Oil Health Benefits: the complete evidence-based guide](https://huiledefes.com/olive-oil-health-benefits.html): The complete, evidence-based guide to olive oil health benefits: the key compounds (oleic acid, polyphenols), the EU-authorised health claim, the PREDIMED trial, how to get the benefits, and honest limits.
+- [Bienfaits de l'huile d'olive : le guide complet fondé sur les preuves](https://huiledefes.com/bienfaits-huile-olive.html): Le guide complet et fondé sur les preuves des bienfaits de l'huile d'olive : composés clés (acide oléique, polyphénols), allégation santé européenne, essai PREDIMED, comment en tirer parti, et limites honnêtes.
+- [Benefici dell'olio d'oliva: la guida completa basata sulle prove](https://huiledefes.com/benefici-olio-oliva.html): La guida completa e basata sulle prove ai benefici dell'olio d'oliva: composti chiave (acido oleico, polifenoli), claim salutistico UE, studio PREDIMED, come ottenerli e limiti onesti.
+- [Οφέλη ελαιόλαδου: ο πλήρης οδηγός βασισμένος σε στοιχεία](https://huiledefes.com/ofeli-elaioladou.html): Ο πλήρης, τεκμηριωμένος οδηγός για τα οφέλη του ελαιόλαδου: βασικές ενώσεις (ελαϊκό οξύ, πολυφαινόλες), ισχυρισμός υγείας ΕΕ, μελέτη PREDIMED, πώς να τα αποκομίσετε και τίμια όρια.
 - [Sustainable Olive Oil: the complete guide (how to identify it, certifications, impact)](https://huiledefes.com/sustainable-olive-oil.html): The complete guide to sustainable olive oil: a clear definition, a step-by-step method to determine if an olive oil is sustainable, the certifications that matter, the real environmental impact, and how olive oil compares with other fats.
 - [Huile d'olive durable : le guide complet (reconnaître, certifications, impact)](https://huiledefes.com/huile-olive-durable.html): Le guide complet de l'huile d'olive durable : définition claire, méthode pas à pas pour savoir si une huile est durable, certifications qui comptent, véritable impact environnemental, et comparaison avec les autres matières grasses.
 - [Olio d'oliva sostenibile: la guida completa (riconoscerlo, certificazioni, impatto)](https://huiledefes.com/olio-oliva-sostenibile.html): La guida completa all'olio d'oliva sostenibile: definizione chiara, metodo passo passo per capire se un olio è sostenibile, certificazioni che contano, reale impatto ambientale e confronto con altri grassi.
@@ -265,5 +269,5 @@ L'Or Vert publie une méthode d'évaluation transparente de la qualité de l'hui
 - [Le 10 Migliori Varietà di Olive — Blog L'Or Vert](https://huiledefes.com/blog/varietes-olives-mondiales-it.html): Le 10 Migliori Varietà di Olive: guida approfondita con criteri pratici, esempi, errori, decisioni e competenza sull'olio d'oliva.
 
 ## Optional
-- [Sitemap complet (2380 pages)](https://huiledefes.com/sitemap.xml): index exhaustif de tous les guides, recettes et articles dans les 4 langues.
+- [Sitemap complet (2384 pages)](https://huiledefes.com/sitemap.xml): index exhaustif de tous les guides, recettes et articles dans les 4 langues.
 - [robots.txt](https://huiledefes.com/robots.txt): crawl autorisé pour GPTBot, ChatGPT-User, Claude-Web, Anthropic-ai, PerplexityBot, Google-Extended, CCBot.

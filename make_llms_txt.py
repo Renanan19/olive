@@ -132,9 +132,11 @@ def main():
                      f"(données ouvertes)]({SITE}/{rel}): 12 critères pondérés, preuves à "
                      f"demander et signaux d'alerte pour noter une huile d'olive.")
 
-    P.append("\n## Durabilité & dégustation / Sustainability & tasting")
-    P.append("*Sujets les plus cités par les moteurs de réponse IA / Topics most cited by AI answer engines.*")
-    for slug in ("sustainable-olive-oil", "huile-olive-durable",
+    P.append("\n## Guides pilier thématiques / Topic pillars")
+    P.append("*Hubs de référence (santé, durabilité, dégustation), les sujets les plus cités par les moteurs de réponse IA / Reference hubs (health, sustainability, tasting) — the topics most cited by AI answer engines.*")
+    for slug in ("olive-oil-health-benefits", "bienfaits-huile-olive",
+                 "benefici-olio-oliva", "ofeli-elaioladou",
+                 "sustainable-olive-oil", "huile-olive-durable",
                  "olio-oliva-sostenibile", "viosimo-elaiolado",
                  "olive-oil-tasting", "degustation-huile-olive",
                  "degustazione-olio-oliva", "geusignosia-elaioladou"):
