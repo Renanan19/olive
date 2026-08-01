@@ -40,11 +40,14 @@ DEFAULT_PROMPT = (
     "no text, no camera movement, no cuts."
 )
 
-# Du plus recent au plus ancien : le script prend le premier accepte par la cle.
+# Du meilleur au plus ancien : le script prend le premier accepte par la cle.
+# Les noms exacts varient selon le palier de la cle — d'ou la cascade, et
+# --list-models quand tout echoue.
 MODEL_CANDIDATES = [
+    "veo-3.1-fast-generate-preview",
     "veo-3.1-generate-preview",
-    "veo-3.0-generate-001",
     "veo-3.0-fast-generate-001",
+    "veo-3.0-generate-001",
     "veo-2.0-generate-001",
 ]
 
@@ -205,7 +208,10 @@ def main() -> None:
             break
         except Exception as exc:  # modele indisponible sur cette cle : on essaie le suivant
             last_err = exc
-            print(f"  {model} indisponible ({type(exc).__name__}).")
+            # Le message compte plus que le type : un 404 (mauvais nom) et un 429
+            # (quota) demandent des actions opposees.
+            msg = " ".join(str(exc).split())
+            print(f"  {model} indisponible : {msg[:160]}")
     else:
         sys.exit(f"Aucun modele Veo utilisable. Derniere erreur : {last_err}\n"
                  f"Lance --list-models pour voir ce que ta cle autorise.")
