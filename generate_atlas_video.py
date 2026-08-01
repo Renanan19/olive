@@ -84,10 +84,11 @@ def generate(client, model: str, prompt: str, duration: int, takes: int) -> list
     """Lance la generation et attend l'operation longue duree."""
     from google.genai import types
 
+    # person_generation n'est pas envoye : l'API rejette "dont_allow" (400).
+    # Le prompt dit deja "no people", ce qui suffit.
     cfg = {
         "aspect_ratio": "16:9",
         "number_of_videos": takes,
-        "person_generation": "dont_allow",
     }
     # duration_seconds n'existe pas sur tous les modeles : on degrade sans casser.
     try:
@@ -206,11 +207,17 @@ def main() -> None:
         try:
             videos = generate(client, model, args.prompt, args.duration, args.takes)
             break
-        except Exception as exc:  # modele indisponible sur cette cle : on essaie le suivant
-            last_err = exc
-            # Le message compte plus que le type : un 404 (mauvais nom) et un 429
-            # (quota) demandent des actions opposees.
+        except Exception as exc:
             msg = " ".join(str(exc).split())
+            # Seul un 404 signifie "ce modele n'existe pas pour cette cle" et
+            # justifie d'essayer le suivant. Sur toute autre erreur (400 config,
+            # 429 quota, 403 droits), reessayer d'autres modeles ne fait que
+            # repeter le meme echec en masquant la cause.
+            if "NOT_FOUND" not in msg and "404" not in msg:
+                sys.exit(f"\n{model} a refuse la requete :\n  {msg}\n\n"
+                         f"Erreur de configuration ou de quota, pas de modele — "
+                         f"changer de modele n'y changerait rien.")
+            last_err = exc
             print(f"  {model} indisponible : {msg[:160]}")
     else:
         sys.exit(f"Aucun modele Veo utilisable. Derniere erreur : {last_err}\n"
