@@ -70,6 +70,34 @@
             animation: tape-jitter 5.5s steps(1, end) infinite;
         }
 
+        /* Tant que le script n'a pas donné de source, l'élément ne peint rien */
+        video.plate:not([src]) { display: none; }
+
+        /* Les valeurs de .plate visaient le repli CSS, dont le ciel est clair.
+           Les images réelles arrivent déjà sombres : moins de coupe, sinon le
+           tronc et la mer partent en bouillie noire. */
+        video.plate {
+            filter: grayscale(1) brightness(0.86) contrast(1.5) saturate(0);
+        }
+
+        /* Le petit texte était calibré sur fond noir. Le ciel réel est clair :
+           sans ces reprises, tagline et liens deviennent illisibles. */
+        .stage.has-video .tagline {
+            color: rgba(246, 243, 236, .88);
+            text-shadow: 0 0 10px rgba(0,0,0,1), 0 0 28px rgba(0,0,0,.9);
+        }
+
+        .stage.has-video .exits a { color: rgba(246, 243, 236, .68); }
+        .stage.has-video .exits span { color: rgba(246, 243, 236, .38); }
+
+        /* Même raison : le voile plat n'a plus de ciel clair à écraser. */
+        .stage.has-video .scrim {
+            background:
+                radial-gradient(ellipse 74% 66% at 50% 50%,
+                    rgba(0,0,0,.16) 0%, rgba(0,0,0,.40) 55%, rgba(0,0,0,.86) 100%),
+                linear-gradient(to bottom, rgba(0,0,0,.34) 0%, rgba(0,0,0,0) 40%, rgba(0,0,0,.46) 100%);
+        }
+
         /* Repli si la vidéo n'est pas encore là : un olivier peint en CSS.
            Ciel surexposé, arbre en silhouette pleine : le contre-jour fait tout. */
         .plate-fallback {
@@ -290,18 +318,11 @@
 </head>
 <body>
     <main class="stage">
-        <!--
-          La vidéo n'est pas encore générée : le repli CSS ci-dessous fait le travail.
-          Une fois assets/atlas-olive.mp4 en place, dé-commenter le bloc <video> —
-          il se superpose au repli sans autre changement.
-
-        <video class="plate" autoplay muted loop playsinline preload="auto"
-               poster="assets/atlas-olive-poster.jpg">
-            <source src="assets/atlas-olive.webm" type="video/webm">
-            <source src="assets/atlas-olive.mp4" type="video/mp4">
-        </video>
-        -->
+        <!-- Le repli reste sous la vidéo : il tient l'écran pendant le chargement,
+             et reste seul quand le script décide de ne pas charger la vidéo. -->
         <div class="plate plate-fallback" aria-hidden="true"></div>
+        <video id="plate-video" class="plate" autoplay muted loop playsinline
+               preload="none" aria-hidden="true"></video>
 
         <div class="scrim" aria-hidden="true"></div>
         <div class="grain" aria-hidden="true"></div>
@@ -323,5 +344,25 @@
             <a href="index-el.html" hreflang="el">EL</a>
         </nav>
     </main>
+
+    <script>
+        // La vidéo pèse 10 Mo. On ne l'impose pas aux petits écrans (data mobile)
+        // ni aux personnes qui ont demandé moins d'animation : dans ces deux cas
+        // le repli CSS tient l'écran tout seul, et rien n'est téléchargé.
+        (function () {
+            var wide = window.matchMedia('(min-width: 800px)').matches;
+            var calm = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+            if (!wide || calm) return;
+
+            var v = document.getElementById('plate-video');
+            v.src = 'assets/atlas-olive.mp4';
+            // Rééquilibre le voile : sans ça, l'étalonnage prévu pour le repli
+            // noircit les images réelles jusqu'à les effacer.
+            document.querySelector('.stage').classList.add('has-video');
+            // Autoplay refusé par le navigateur : le repli reste visible, rien ne casse.
+            var p = v.play();
+            if (p) { p.catch(function () {}); }
+        })();
+    </script>
 </body>
 </html>
