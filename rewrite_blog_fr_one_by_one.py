@@ -849,10 +849,10 @@ def render_article(path, key, data):
     <script type="application/ld+json">{json.dumps(schema, ensure_ascii=False, indent=2)}</script>
 </head>
 <body>
-<nav class="site-nav"><div class="container"><a href="../index.html" class="logo">L'OR VERT / BLOG</a>{lang_switch(alternates, path.name)}</div></nav>
+<nav class="site-nav"><div class="container"><a href="../index-fr.html" class="logo">L'OR VERT / BLOG</a>{lang_switch(alternates, path.name)}</div></nav>
 <header class="page-hero" style="background: linear-gradient(135deg, var(--pine) 0%, var(--avocado-dark) 100%);">
     <div class="container">
-        <div class="breadcrumb"><a href="../index.html">Accueil</a> &raquo; Blog</div>
+        <div class="breadcrumb"><a href="../index-fr.html">Accueil</a> &raquo; Blog</div>
         <h1>{esc(title)}</h1>
         <p class="lede">{esc(data["lede"])}</p>
         <div class="meta">Mis à jour : 4 mai 2026 &middot; 8 min de lecture</div>

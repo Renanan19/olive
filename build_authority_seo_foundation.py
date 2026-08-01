@@ -86,7 +86,7 @@ PILLAR_PAGES = {
     "fr": {
         "slug": "huile-olive.html",
         "observatory": "observatoire-huile-olive-2026.html",
-        "index": "index.html",
+        "index": "index-fr.html",
         "lang_label": "FR",
         "title": "Huile d'olive : le guide pilier complet pour choisir, goûter, cuisiner et conserver",
         "meta": "Guide pilier sur l'huile d'olive : extra vierge, bienfaits, goût, cuisson, conservation, labels, prix, recettes et méthode d'achat experte.",

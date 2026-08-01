@@ -556,7 +556,7 @@ TEMPLATE = """<!DOCTYPE html>
 
 <nav class="site-nav">
     <div class="container">
-        <a href="../index.html" class="logo">L'OR VERT</a>
+        <a href="../index-fr.html" class="logo">L'OR VERT</a>
         <div class="lang-switch">
             {lang_switch}
         </div>
@@ -566,7 +566,7 @@ TEMPLATE = """<!DOCTYPE html>
 <header class="page-hero">
     <div class="container">
         <div class="breadcrumb">
-            <a href="../index.html">Home</a> &raquo; <a href="../index.html#guides">Guides</a> &raquo; {h1}
+            <a href="../index-fr.html">Home</a> &raquo; <a href="../index-fr.html#guides">Guides</a> &raquo; {h1}
         </div>
         <h1>{h1}</h1>
         <p class="lede">{lede}</p>

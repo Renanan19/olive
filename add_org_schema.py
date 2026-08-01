@@ -14,7 +14,7 @@ ROOT = os.path.dirname(os.path.abspath(__file__))
 SITE = "https://huiledefes.com"
 
 PAGES = [
-    "index.html", "index-en.html", "index-it.html", "index-el.html",
+    "index-fr.html", "index-en.html", "index-it.html", "index-el.html",
     "huile-olive.html", "olive-oil.html", "olio-oliva.html", "elaio-lado.html",
     "observatoire-huile-olive-2026.html", "olive-oil-observatory-2026.html",
     "osservatorio-olio-oliva-2026.html", "paratiritirio-elaio-lado-2026.html",

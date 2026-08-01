@@ -113,7 +113,7 @@ html_template = """<!DOCTYPE html>
 
 translations = {
     "fr": {
-        "index": "index.html", "home": "Accueil", "guides": "Guides", "pub": "Publication", "min": "min de lecture",
+        "index": "index-fr.html", "home": "Accueil", "guides": "Guides", "pub": "Publication", "min": "min de lecture",
         "intro": "L'huile d'olive est au coeur de la diète méditerranéenne. Ce guide explore ses multiples facettes pour vous aider à mieux la comprendre et l'intégrer à votre vie quotidienne avec des produits de haute qualité.",
         "h2_1": "Pourquoi s'y intéresser ?", "p_1": "Riche en antioxydants et en bons acides gras, elle offre des propriétés exceptionnelles reconnues par les experts de la nutrition et de la santé du monde entier.",
         "h3_1": "Points clés",

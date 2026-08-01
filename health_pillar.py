@@ -22,7 +22,7 @@ SLUGS = {"fr": "bienfaits-huile-olive", "en": "olive-oil-health-benefits",
          "it": "benefici-olio-oliva", "el": "ofeli-elaioladou"}
 
 UI = {
-    "fr": dict(idx="index.html", nav="L'OR VERT", home="Accueil", crumb="Santé",
+    "fr": dict(idx="index-fr.html", nav="L'OR VERT", home="Accueil", crumb="Santé",
                pillar="huile-olive.html", pillarlbl="Guide pilier : l'huile d'olive",
                obs="observatoire-huile-olive-2026.html", obslbl="Observatoire qualité 2026",
                g1="guides/complete-guide-extra-virgin-olive-oil-for-health-fr.html", g1l="Approfondir : huile d'olive & santé",

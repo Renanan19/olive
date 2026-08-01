@@ -12,7 +12,7 @@ SITE = "https://huiledefes.com"
 
 LANGS = {
     "fr": {
-        "index": "index.html",
+        "index": "index-fr.html",
         "home": "Accueil",
         "blog": "Blog",
         "recipes": "Recettes",

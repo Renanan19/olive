@@ -38,14 +38,14 @@ DRY = "--dry-run" in sys.argv
 
 # Root-level language clusters that do NOT use the -<lang>.html suffix.
 ROOT_CLUSTERS = [
-    {"fr": "index.html", "en": "index-en.html",
+    {"fr": "index-fr.html", "en": "index-en.html",
      "it": "index-it.html", "el": "index-el.html"},
     {"fr": "observatoire-huile-olive-2026.html", "en": "olive-oil-observatory-2026.html",
      "it": "osservatorio-olio-oliva-2026.html", "el": "paratiritirio-elaio-lado-2026.html"},
     {"fr": "huile-olive.html", "en": "olive-oil.html",
      "it": "olio-oliva.html", "el": "elaio-lado.html"},
 ]
-WEBSITE_TYPE_FILES = {"index.html", "index-en.html", "index-it.html", "index-el.html"}
+WEBSITE_TYPE_FILES = {"index-fr.html", "index-en.html", "index-it.html", "index-el.html"}
 
 SUFFIX_RE = re.compile(r'^(?P<base>.+)-(?P<lang>fr|en|it|el)\.html$')
 TITLE_RE = re.compile(r'<title>(.*?)</title>', re.S | re.I)

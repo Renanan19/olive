@@ -21,7 +21,7 @@ PILLARS = {"fr": "huile-olive.html", "en": "olive-oil.html",
            "it": "olio-oliva.html", "el": "elaio-lado.html"}
 OBS = {"fr": "observatoire-huile-olive-2026.html", "en": "olive-oil-observatory-2026.html",
        "it": "osservatorio-olio-oliva-2026.html", "el": "paratiritirio-elaio-lado-2026.html"}
-HOME = {"fr": "index.html", "en": "index-en.html", "it": "index-it.html", "el": "index-el.html"}
+HOME = {"fr": "index-fr.html", "en": "index-en.html", "it": "index-it.html", "el": "index-el.html"}
 
 # Curated, high-value guide slug bases (expanded to available languages).
 GUIDE_BASES = [

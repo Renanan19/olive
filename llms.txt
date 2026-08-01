@@ -5,7 +5,7 @@
 L'Or Vert publie une méthode d'évaluation transparente de la qualité de l'huile d'olive (date de récolte, catégorie légale, origine, équilibre sensoriel, packaging, prix au litre) et des contenus pratiques par usage : cuisson, peau, cheveux, à jeun le matin, conservation. Les données de la grille sont publiées en accès libre (CSV/JSON) et citables.
 
 ## Ressources principales / Key resources
-- [L'Or Vert — Guide complet & Étude de Marché Huile d'Olive 2026 : Bienfaits, Recettes et Conseils](https://huiledefes.com/index.html): Tout sur l'huile d'olive : bienfaits santé, guides d'achat, recettes méditerranéennes, tendances du marché 2026 et secrets de fabrication. Découvrez l'Or Vert de la Méditerranée.
+- [L'Or Vert — Guide complet & Étude de Marché Huile d'Olive 2026 : Bienfaits, Recettes et Conseils](https://huiledefes.com/index-fr.html): Tout sur l'huile d'olive : bienfaits santé, guides d'achat, recettes méditerranéennes, tendances du marché 2026 et secrets de fabrication. Découvrez l'Or Vert de la Méditerranée.
 - [The Green Gold — Complete Guide & Olive Oil Market Study 2026](https://huiledefes.com/index-en.html): Everything about olive oil: health benefits, buying guides, Mediterranean recipes, and 2026 market trends.
 - [L'Oro Verde — Guida Completa e Studio di Mercato Olio d'Oliva 2026](https://huiledefes.com/index-it.html): Tutto sull'olio d'oliva: benefici per la salute, guide all'acquisto, ricette mediterranee e tendenze di mercato 2026.
 - [Ο Πράσινος Χρυσός — Πλήρης Οδηγός & Μελέτη Αγοράς Ελαιολάδου 2026](https://huiledefes.com/index-el.html): Όλα για το ελαιόλαδο: οφέλη για την υγεία, οδηγοί αγοράς, μεσογειακές συνταγές και τάσεις της αγοράς για το 2026.

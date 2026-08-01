@@ -577,9 +577,9 @@ TEMPLATE_IT = """<!DOCTYPE html>
     {hreflang}
 </head>
 <body>
-<nav class="site-nav"><div class="container"><a href="../index.html" class="logo">L'OR VERT</a><div class="lang-switch">{lang_switch}</div></div></nav>
+<nav class="site-nav"><div class="container"><a href="../index-fr.html" class="logo">L'OR VERT</a><div class="lang-switch">{lang_switch}</div></div></nav>
 <header class="page-hero"><div class="container">
-    <div class="breadcrumb"><a href="../index.html">Home</a> &raquo; Guide</div>
+    <div class="breadcrumb"><a href="../index-fr.html">Home</a> &raquo; Guide</div>
     <h1>{h1}</h1><p class="lede">{lede}</p>
     <div class="meta">Pubblicato: Aprile 2026 &middot; 8 min di lettura</div>
 </div></header>
@@ -606,9 +606,9 @@ TEMPLATE_EL = """<!DOCTYPE html>
     {hreflang}
 </head>
 <body>
-<nav class="site-nav"><div class="container"><a href="../index.html" class="logo">L'OR VERT</a><div class="lang-switch">{lang_switch}</div></div></nav>
+<nav class="site-nav"><div class="container"><a href="../index-fr.html" class="logo">L'OR VERT</a><div class="lang-switch">{lang_switch}</div></div></nav>
 <header class="page-hero"><div class="container">
-    <div class="breadcrumb"><a href="../index.html">Αρχική</a> &raquo; Οδηγοί</div>
+    <div class="breadcrumb"><a href="../index-fr.html">Αρχική</a> &raquo; Οδηγοί</div>
     <h1>{h1}</h1><p class="lede">{lede}</p>
     <div class="meta">Δημοσίευση: Απρίλιος 2026 &middot; 8 λεπτά ανάγνωσης</div>
 </div></header>

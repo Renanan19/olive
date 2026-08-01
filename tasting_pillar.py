@@ -25,7 +25,7 @@ SUST = {"fr": "huile-olive-durable", "en": "sustainable-olive-oil",
         "it": "olio-oliva-sostenibile", "el": "viosimo-elaiolado"}
 
 UI = {
-    "fr": dict(idx="index.html", nav="L'OR VERT", home="Accueil", crumb="Dégustation",
+    "fr": dict(idx="index-fr.html", nav="L'OR VERT", home="Accueil", crumb="Dégustation",
                pillar="huile-olive.html", pillarlbl="Guide pilier : l'huile d'olive",
                obs="observatoire-huile-olive-2026.html", obslbl="Observatoire qualité 2026",
                notes="blog/notes-degustation-huile-olive-fr.html", noteslbl="Notes de dégustation",

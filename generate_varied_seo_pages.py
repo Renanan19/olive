@@ -38,7 +38,7 @@ suffixes = [
 ]
 
 base_translations = {
-    "fr": { "index": "index.html", "home": "Accueil", "guides": "Guides", "pub": "Publication", "min": "min de lecture", "footer": "Étude de Marché Huile d'Olive 2026. Analyse des tendances et opportunités premium.", "rights": "Tous droits réservés" },
+    "fr": { "index": "index-fr.html", "home": "Accueil", "guides": "Guides", "pub": "Publication", "min": "min de lecture", "footer": "Étude de Marché Huile d'Olive 2026. Analyse des tendances et opportunités premium.", "rights": "Tous droits réservés" },
     "en": { "index": "index-en.html", "home": "Home", "guides": "Guides", "pub": "Published", "min": "min read", "footer": "Olive Oil Market Study 2026. Analysis of premium trends and opportunities.", "rights": "All rights reserved" },
     "it": { "index": "index-it.html", "home": "Home", "guides": "Guide", "pub": "Pubblicazione", "min": "min di lettura", "footer": "Studio di Mercato Olio d'Oliva 2026. Analisi delle tendenze e opportunità premium.", "rights": "Tutti i diritti riservati" },
     "el": { "index": "index-el.html", "home": "Αρχική", "guides": "Οδηγοί", "pub": "Δημοσίευση", "min": "λεπτά ανάγνωσης", "footer": "Μελέτη Αγοράς Ελαιολάδου 2026. Ανάλυση των premium τάσεων και ευκαιριών.", "rights": "Με επιφύλαξη παντός δικαιώματος" }

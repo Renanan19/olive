@@ -27,7 +27,7 @@ UI = {
     "fr": dict(home="Accueil", crumb1="Guides", nav="L'OR VERT / GUIDES",
                also="À lire aussi", pillar="Huile d'olive : le guide pilier complet",
                obs="Voir l'observatoire 2026", pillarhref="../huile-olive.html",
-               obshref="../observatoire-huile-olive-2026.html", idx="../index.html",
+               obshref="../observatoire-huile-olive-2026.html", idx="../index-fr.html",
                kf="En bref", faqh="Questions fréquentes",
                foot="Le carnet de référence de L'Or Vert sur l'huile d'olive, la cuisine méditerranéenne et les usages du quotidien."),
     "en": dict(home="Home", crumb1="Guides", nav="L'OR VERT / GUIDES",
