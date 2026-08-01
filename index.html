@@ -7,6 +7,16 @@
     <meta name="description" content="Atlas — huile d'olive extra vierge. Une maison, un terroir, une récolte.">
     <link rel="canonical" href="https://huiledefes.com/" />
 
+    <!-- Les 4 versions linguistiques. Signal <head> standard : jamais rendu,
+         jamais vu par un visiteur. C'est par là que les moteurs descendent
+         depuis la racine, puisque la page ne porte volontairement aucun lien.
+         La racine est le x-default : une entrée neutre, sans langue. -->
+    <link rel="alternate" hreflang="fr" href="https://huiledefes.com/index-fr.html" />
+    <link rel="alternate" hreflang="en" href="https://huiledefes.com/index-en.html" />
+    <link rel="alternate" hreflang="it" href="https://huiledefes.com/index-it.html" />
+    <link rel="alternate" hreflang="el" href="https://huiledefes.com/index-el.html" />
+    <link rel="alternate" hreflang="x-default" href="https://huiledefes.com/" />
+
     <meta property="og:title" content="Atlas — Huile d'olive">
     <meta property="og:description" content="Atlas — huile d'olive extra vierge. Une maison, un terroir, une récolte.">
     <meta property="og:url" content="https://huiledefes.com/">
@@ -86,9 +96,6 @@
             color: rgba(246, 243, 236, .88);
             text-shadow: 0 0 10px rgba(0,0,0,1), 0 0 28px rgba(0,0,0,.9);
         }
-
-        .stage.has-video .exits a { color: rgba(246, 243, 236, .68); }
-        .stage.has-video .exits span { color: rgba(246, 243, 236, .38); }
 
         /* Même raison : le voile plat n'a plus de ciel clair à écraser. */
         .stage.has-video .scrim {
@@ -225,37 +232,6 @@
             text-shadow: 0 0 18px rgba(0,0,0,.95), 0 0 46px rgba(0,0,0,.8);
         }
 
-        /* ---------- Couche 4 : la sortie discrète ---------- */
-
-        .exits {
-            position: absolute;
-            left: 0;
-            right: 0;
-            bottom: clamp(1.4rem, 3.5vh, 2.6rem);
-            display: flex;
-            justify-content: center;
-            gap: .95rem;
-            font-size: .62rem;
-            letter-spacing: .3em;
-            text-transform: uppercase;
-            text-shadow: 0 0 14px rgba(0,0,0,.95), 0 0 34px rgba(0,0,0,.85);
-        }
-
-        .exits a {
-            color: rgba(222, 217, 207, .42);
-            text-decoration: none;
-            transition: color .5s ease;
-        }
-
-        .exits a:hover,
-        .exits a:focus-visible {
-            color: rgba(244, 241, 234, .85);
-        }
-
-        .exits span {
-            color: rgba(222, 217, 207, .16);
-        }
-
         /* ---------- Mouvement ---------- */
 
         @keyframes gate-weave {
@@ -312,7 +288,6 @@
 
         @media (max-width: 560px) {
             .scanlines { opacity: .22; }
-            .exits { gap: .7rem; font-size: .56rem; letter-spacing: .22em; }
         }
     </style>
 </head>
@@ -334,15 +309,6 @@
             <p class="tagline">Huile d'olive</p>
         </div>
 
-        <nav class="exits" aria-label="Langues">
-            <a href="index-fr.html" hreflang="fr">FR</a>
-            <span aria-hidden="true">·</span>
-            <a href="index-en.html" hreflang="en">EN</a>
-            <span aria-hidden="true">·</span>
-            <a href="index-it.html" hreflang="it">IT</a>
-            <span aria-hidden="true">·</span>
-            <a href="index-el.html" hreflang="el">EL</a>
-        </nav>
     </main>
 
     <script>
