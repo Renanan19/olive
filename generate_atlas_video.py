@@ -78,6 +78,15 @@ LOOKS = {
 }
 DEFAULT_LOOK = "pagnol"
 
+LOOK_ORDER = ["pagnol", "melville", "plein-soleil"]
+LOOK_DESC = {
+    "pagnol": "arriere-pays provencal, pierre seche, mistral, contre-jour rasant",
+    "melville": "monochrome froid et graphique, ciel quasi noir, source unique dure",
+    "plein-soleil": "Mediterranee eclatante, ciel surexpose, mer floue en contrebas",
+}
+
+PRICE_PER_SECOND = 0.10  # tarif Veo indicatif, sert a annoncer le cout avant de lancer
+
 # Du meilleur au plus ancien : le script prend le premier accepte par la cle.
 # Les noms exacts varient selon le palier de la cle — d'ou la cascade, et
 # --list-models quand tout echoue.
@@ -88,6 +97,58 @@ MODEL_CANDIDATES = [
     "veo-3.0-generate-001",
     "veo-2.0-generate-001",
 ]
+
+
+def ask(question: str, default) -> str:
+    """Question avec valeur par defaut : entree vide = on garde le defaut."""
+    return input(f"  {question} [{default}] : ").strip() or str(default)
+
+
+def interactive(args) -> None:
+    """Remplit args en dialogue. Utilise quand le script est lance sans option.
+
+    Rien n'est demande qui ait un defaut evident : on veut pouvoir tout valider
+    a coups d'Entree.
+    """
+    # Pas de tiret cadratin ni d'accent dans les sorties console : la console
+    # Windows est en cp1252 et les rend en points d'interrogation.
+    print("\n  ATLAS - video de fond\n")
+    print("  Regard :")
+    for i, name in enumerate(LOOK_ORDER, 1):
+        mark = "   <- recommande" if name == DEFAULT_LOOK else ""
+        print(f"    {i}) {name:<13} {LOOK_DESC[name]}{mark}")
+    print()
+
+    while True:
+        choice = ask("Numero", LOOK_ORDER.index(DEFAULT_LOOK) + 1)
+        if choice.isdigit() and 1 <= int(choice) <= len(LOOK_ORDER):
+            args.look = LOOK_ORDER[int(choice) - 1]
+            break
+        print("  -> 1, 2 ou 3.")
+
+    while True:
+        d = ask("Duree en secondes (4, 6 ou 8)", args.duration)
+        if d in ("4", "6", "8"):
+            args.duration = int(d)
+            break
+        print("  -> Veo accepte 4, 6 ou 8.")
+
+    while True:
+        t = ask("Nombre de prises", args.takes)
+        if t.isdigit() and 1 <= int(t) <= 4:
+            args.takes = int(t)
+            break
+        print("  -> entre 1 et 4.")
+
+    # Sans ffmpeg la question n'a pas de sens : l'etalonnage reste en CSS.
+    if ffmpeg_bin():
+        args.grade = ask("Cuire le N&B dans le fichier ? (o/n)", "n").lower().startswith("o")
+
+    cost = args.takes * args.duration * PRICE_PER_SECOND
+    print(f"\n  {args.takes} prise(s) x {args.duration}s  -  cout estime ~{cost:.2f} $")
+    if not ask("Lancer ? (o/n)", "o").lower().startswith("o"):
+        sys.exit("  Annule.")
+    print()
 
 
 def ask_key() -> str:
@@ -232,6 +293,10 @@ def main() -> None:
     ap.add_argument("--grade", action="store_true", help="cuire le N&B via ffmpeg")
     ap.add_argument("--list-models", action="store_true")
     args = ap.parse_args()
+
+    # Lance sans aucune option : on demande plutot que d'exiger des flags.
+    if len(sys.argv) == 1:
+        interactive(args)
 
     prompt = args.prompt or LOOKS[args.look]
     if not args.prompt:
