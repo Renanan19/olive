@@ -9,7 +9,8 @@ jamais affichee, jamais posee dans l'environnement persistant.
     python generate_atlas_video.py
 
 Options utiles :
-    --prompt "..."      remplacer le prompt (le defaut vise l'olivier au vent)
+    --look pagnol       parti pris visuel : pagnol | melville | plein-soleil
+    --prompt "..."      prompt libre, ignore --look
     --model veo-3.1-generate-preview
     --duration 8        secondes (selon le modele : 4, 6 ou 8)
     --takes 3           generer plusieurs prises et choisir la meilleure
@@ -30,15 +31,52 @@ from pathlib import Path
 
 ASSETS = Path(__file__).parent / "assets"
 
-DEFAULT_PROMPT = (
-    "Static locked-off cinematic shot of a single ancient gnarled olive tree "
-    "alone on a bare Mediterranean hillside. Strong steady wind moves through "
-    "the canopy: thousands of narrow silver-backed leaves flip and shimmer, "
-    "branches sway slowly. Shot on 16mm black and white film, very high "
-    "contrast, crushed deep blacks, blown highlights on the leaves, heavy grain, "
-    "slight gate weave. Backlit against an overcast blank sky. No people, "
-    "no text, no camera movement, no cuts."
-)
+# Trois regards, pas trois variantes du meme plan. On choisit avec --look.
+#
+# Aucun nom de cineaste ou d'acteur n'apparait dans les prompts : Veo refuse
+# frequemment les personnalites reelles nommees, et il n'y a personne dans le
+# cadre. On decrit la lumiere et le cadre, pas la reference.
+LOOKS = {
+    # Provence de l'arriere-pays : chaleur, pierre seche, mistral.
+    "pagnol": (
+        "Static locked-off cinematic wide shot of one ancient olive tree alone on "
+        "a dry stony hillside in the south of France, high summer. Massive gnarled "
+        "trunk, hollowed and split by centuries, twisting out of pale ochre stones "
+        "beside a low dry-stone wall. Broad low canopy. A hot dry wind gusts "
+        "through the crown in waves: thousands of narrow leaves flip over and flash "
+        "their pale silver undersides, branches swaying slowly, a few leaves torn "
+        "loose and carried off. Low sun directly behind the canopy, long hard "
+        "shadows raking across the stones, heat haze shimmering above the ground. "
+        "Thyme and rosemary scrub at the base. Shot on 35mm anamorphic black and "
+        "white film, Ilford HP5 grain, very high contrast, crushed deep blacks, "
+        "blown highlights on the leaves, slight gate weave and breathing. "
+        "No people, no animals, no text, no titles, no camera movement, no cuts."
+    ),
+    # Monochrome froid et graphique : peu de gris, composition severe.
+    "melville": (
+        "Static locked-off cinematic shot of a single ancient olive tree, stark and "
+        "solitary against a near-black sky. Severe, graphic, almost abstract "
+        "composition, the tree centred and isolated. One hard key light from behind "
+        "and slightly to the side rims the canopy; the trunk stays a solid black "
+        "silhouette with no detail. A steady cold wind moves the crown, the leaves "
+        "catching the light as sharp silver specular flecks that flicker in and out. "
+        "Minimal midtones, only deep black and hard white. Shot on 35mm black and "
+        "white film, fine grain, extreme contrast, still and austere. "
+        "No people, no text, no titles, no camera movement, no cuts."
+    ),
+    # Mediterranee eclatante : lumiere de mer, surexposition franche.
+    "plein-soleil": (
+        "Static locked-off cinematic shot of an ancient olive tree on a Mediterranean "
+        "terrace, blinding midday sun, the flat sea shimmering far below and out of "
+        "focus. Blown-out white sky. The wind comes off the water in long gusts and "
+        "runs through the canopy: leaves turning over in waves, flaring silver-white "
+        "where the light hits them, dappled light moving across the gnarled trunk. "
+        "Shot on 35mm black and white film, high contrast, deliberately overexposed "
+        "highlights, deep shadows, visible grain, faint lens flare. "
+        "No people, no boats, no text, no titles, no camera movement, no cuts."
+    ),
+}
+DEFAULT_LOOK = "pagnol"
 
 # Du meilleur au plus ancien : le script prend le premier accepte par la cle.
 # Les noms exacts varient selon le palier de la cle — d'ou la cascade, et
@@ -185,13 +223,19 @@ def grade(src: Path) -> None:
 
 def main() -> None:
     ap = argparse.ArgumentParser(description="Genere la video de fond Atlas via Veo.")
-    ap.add_argument("--prompt", default=DEFAULT_PROMPT)
+    ap.add_argument("--look", choices=sorted(LOOKS), default=DEFAULT_LOOK,
+                    help="parti pris visuel (defaut : %(default)s)")
+    ap.add_argument("--prompt", default=None, help="prompt libre, ignore --look")
     ap.add_argument("--model", default=None, help="force un modele Veo precis")
     ap.add_argument("--duration", type=int, default=8)
     ap.add_argument("--takes", type=int, default=1, help="nombre de prises")
     ap.add_argument("--grade", action="store_true", help="cuire le N&B via ffmpeg")
     ap.add_argument("--list-models", action="store_true")
     args = ap.parse_args()
+
+    prompt = args.prompt or LOOKS[args.look]
+    if not args.prompt:
+        print(f"Regard  : {args.look}")
 
     key = ask_key()
     client = make_client(key)
@@ -205,7 +249,7 @@ def main() -> None:
     last_err = None
     for model in models:
         try:
-            videos = generate(client, model, args.prompt, args.duration, args.takes)
+            videos = generate(client, model, prompt, args.duration, args.takes)
             break
         except Exception as exc:
             msg = " ".join(str(exc).split())
