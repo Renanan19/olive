@@ -312,13 +312,11 @@
     </main>
 
     <script>
-        // La vidéo pèse 10 Mo. On ne l'impose pas aux petits écrans (data mobile)
-        // ni aux personnes qui ont demandé moins d'animation : dans ces deux cas
-        // le repli CSS tient l'écran tout seul, et rien n'est téléchargé.
+        // Mobile compris : même page, même image. Seul prefers-reduced-motion
+        // garde le repli, et là c'est une demande explicite du visiteur.
         (function () {
-            var wide = window.matchMedia('(min-width: 800px)').matches;
             var calm = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-            if (!wide || calm) return;
+            if (calm) return;
 
             var v = document.getElementById('plate-video');
             v.src = 'assets/atlas-olive.mp4';

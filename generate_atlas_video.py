@@ -179,14 +179,15 @@ def list_models(client) -> None:
         print("  (aucun — Veo n'est peut-etre pas active sur ce projet)")
 
 
-def generate(client, model: str, prompt: str, duration: int, takes: int) -> list:
+def generate(client, model: str, prompt: str, duration: int, takes: int,
+             aspect: str = "16:9") -> list:
     """Lance la generation et attend l'operation longue duree."""
     from google.genai import types
 
     # person_generation n'est pas envoye : l'API rejette "dont_allow" (400).
     # Le prompt dit deja "no people", ce qui suffit.
     cfg = {
-        "aspect_ratio": "16:9",
+        "aspect_ratio": aspect,
         "number_of_videos": takes,
     }
     # duration_seconds n'existe pas sur tous les modeles : on degrade sans casser.
@@ -218,11 +219,13 @@ def generate(client, model: str, prompt: str, duration: int, takes: int) -> list
     return videos
 
 
-def download(client, videos: list) -> list[Path]:
+def download(client, videos: list, stem: str = "atlas-olive") -> list[Path]:
+    """La 1re prise prend le nom attendu par index.html ; les autres sont
+    suffixees -take2, -take3 (gitignorees, on n'en garde qu'une)."""
     ASSETS.mkdir(exist_ok=True)
     paths = []
     for i, gv in enumerate(videos):
-        name = "atlas-olive.mp4" if i == 0 else f"atlas-olive-take{i + 1}.mp4"
+        name = f"{stem}.mp4" if i == 0 else f"{stem}-take{i + 1}.mp4"
         dest = ASSETS / name
         client.files.download(file=gv.video)
         gv.video.save(str(dest))
@@ -290,6 +293,8 @@ def main() -> None:
     ap.add_argument("--model", default=None, help="force un modele Veo precis")
     ap.add_argument("--duration", type=int, default=8)
     ap.add_argument("--takes", type=int, default=1, help="nombre de prises")
+    ap.add_argument("--aspect", choices=["16:9", "9:16"], default="16:9",
+                    help="9:16 produit une prise verticale, cadree pour le telephone")
     ap.add_argument("--grade", action="store_true", help="cuire le N&B via ffmpeg")
     ap.add_argument("--list-models", action="store_true")
     args = ap.parse_args()
@@ -314,7 +319,8 @@ def main() -> None:
     last_err = None
     for model in models:
         try:
-            videos = generate(client, model, prompt, args.duration, args.takes)
+            videos = generate(client, model, prompt, args.duration, args.takes,
+                              args.aspect)
             break
         except Exception as exc:
             msg = " ".join(str(exc).split())
@@ -333,7 +339,8 @@ def main() -> None:
                  f"Lance --list-models pour voir ce que ta cle autorise.")
 
     print("\nTelechargement :")
-    paths = download(client, videos)
+    stem = "atlas-olive-vertical" if args.aspect == "9:16" else "atlas-olive"
+    paths = download(client, videos, stem)
 
     if args.grade:
         grade(paths[0])

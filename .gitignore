@@ -6,5 +6,5 @@ __pycache__/
 
 # Prises Veo écartées : ~10 Mo pièce, elles resteraient dans l'historique git
 # pour toujours. Seule assets/atlas-olive.mp4, la prise retenue, est versionnée.
-assets/atlas-olive-take*.mp4
+assets/atlas-olive*-take*.mp4
 assets/atlas-olive_*.mp4
