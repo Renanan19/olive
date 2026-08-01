@@ -232,6 +232,35 @@
             text-shadow: 0 0 18px rgba(0,0,0,.95), 0 0 46px rgba(0,0,0,.8);
         }
 
+        /* ---------- Couche 4 : le contact ---------- */
+
+        .contact {
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: clamp(1.4rem, 3.5vh, 2.6rem);
+            margin: 0;
+            text-align: center;
+            font-size: clamp(.52rem, .85vw, .62rem);
+            /* Interlettrage court : une adresse mail très espacée ne se lit plus */
+            letter-spacing: .14em;
+            text-shadow: 0 0 14px rgba(0,0,0,.95), 0 0 34px rgba(0,0,0,.85);
+        }
+
+        .contact a {
+            color: rgba(222, 217, 207, .45);
+            text-decoration: none;
+            transition: color .5s ease;
+        }
+
+        .contact a:hover,
+        .contact a:focus-visible {
+            color: rgba(244, 241, 234, .92);
+        }
+
+        /* Le ciel réel est clair : même reprise que pour le tagline */
+        .stage.has-video .contact a { color: rgba(246, 243, 236, .62); }
+
         /* ---------- Mouvement ---------- */
 
         @keyframes gate-weave {
@@ -308,6 +337,10 @@
             <h1 class="wordmark">Atlas</h1>
             <p class="tagline">Huile d'olive</p>
         </div>
+
+        <p class="contact">
+            <a href="mailto:contact@huiledefes.com">contact@huiledefes.com</a>
+        </p>
 
     </main>
 
