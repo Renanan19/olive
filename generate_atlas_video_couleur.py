@@ -72,12 +72,26 @@ WIND = (
     "everything that moves is the tree."
 )
 
+# Le rayon qui perce entre les feuilles et frappe l'objectif. Le point qui compte
+# est l'intermittence : le flare doit naitre et mourir avec le mouvement du
+# feuillage, jamais rester allume. Reserve a super8 — sur rohmer (lumiere douce
+# et claire) et carte-postale (midi voile) un flare marque jurerait. Une ligne
+# suffit pour l'ajouter ailleurs.
+SUN_THROUGH_LEAVES = (
+    "The low sun sits directly behind the canopy. As the leaves move, a small "
+    "hard sunbeam keeps breaking through the gaps straight into the lens: brief "
+    "warm starbursts and soft round flare ghosts bloom across the frame, then "
+    "vanish again as the leaves close over the sun. The flare is never constant, "
+    "it appears and disappears with the swaying of the branches, sometimes for "
+    "only a fraction of a second."
+)
+
 LOOKS = {
     # Film de famille : chaud, flottant, un peu abime.
     "super8": (
         "One ancient gnarled olive tree standing alone on a stone terrace above "
         "the sea in the south of France, late afternoon in high summer. " + SEA +
-        " " + WIND +
+        " " + WIND + " " + SUN_THROUGH_LEAVES +
         " Colour is gently faded and pastel: dusty sage-green foliage, chalky "
         "white stone, pale washed blue sea and sky, and a soft warm cast in the "
         "brightest highlights only. Nothing orange, nothing sepia, nothing "
