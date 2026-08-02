@@ -40,41 +40,71 @@ STEM = "atlas-olive-couleur"
 #
 # Aucun nom de cineaste n'apparait dans les prompts : Veo refuse frequemment
 # les personnalites reelles nommees. On decrit la pellicule et la lumiere.
+#
+# Trois pieges appris a l'usage, corriges dans les trois prompts :
+#
+# 1. Nommer un support ("shot on Super 8", "looks like a postcard") fait
+#    DESSINER l'objet : Veo a rendu une bande de film avec perforations, bord
+#    noir et numeros de bobine, qui mangeait un tiers du cadre. On decrit donc
+#    la texture ("the softness of 8mm footage") et on interdit l'objet
+#    explicitement.
+# 2. "static locked-off" + "no camera movement" a cote l'un de l'autre pousse
+#    vers l'image quasi fixe. On separe : la camera ne bouge pas, l'arbre bouge.
+#    Et le mouvement est annonce en premier, pas en incise.
+# 3. "warm amber cast" ecrase tout le reste et vire au sepia. On borne :
+#    chaleur dans les hautes lumieres seulement, et on interdit l'orange.
+NO_FILM_OBJECT = (
+    "The picture fills the entire frame edge to edge. No film strip, no sprocket "
+    "holes, no film border or frame edges, no numbers, markings or timecode, no "
+    "letterbox bars, no photo borders. No people, no text, no titles, no cuts."
+)
+
+SEA = (
+    "Behind the tree the flat Mediterranean sea fills the whole background to the "
+    "horizon, slightly out of focus, glittering softly in the summer light."
+)
+
+WIND = (
+    "The canopy is in constant motion from the first frame to the last: a steady "
+    "sea breeze gusts through it in waves, thousands of narrow leaves flipping "
+    "over and shimmering, small branches swaying and springing back, a few leaves "
+    "torn loose and drifting away. The camera is locked off and never moves; "
+    "everything that moves is the tree."
+)
+
 LOOKS = {
     # Film de famille : chaud, flottant, un peu abime.
     "super8": (
-        "Static locked-off shot of one ancient gnarled olive tree on a stone "
-        "terrace in the south of France, late afternoon in high summer. Warm hazy "
-        "light, dust and pollen drifting slowly through the air. A soft wind moves "
-        "through the canopy: leaves turning over in waves, flashing pale "
-        "silver-green. Shot on Super 8 home-movie film: soft faded pastel colour, "
-        "milky lifted blacks, warm amber cast, gentle halation blooming around the "
-        "highlights, visible grain, slight flicker and gate weave, a soft light "
-        "leak creeping in at one edge of the frame. Muted dusty palette of sage "
-        "green, pale ochre, washed sky blue and chalky white. Nothing saturated. "
-        "No people, no text, no titles, no camera movement, no cuts."
+        "One ancient gnarled olive tree standing alone on a stone terrace above "
+        "the sea in the south of France, late afternoon in high summer. " + SEA +
+        " " + WIND +
+        " Colour is gently faded and pastel: dusty sage-green foliage, chalky "
+        "white stone, pale washed blue sea and sky, and a soft warm cast in the "
+        "brightest highlights only. Nothing orange, nothing sepia, nothing "
+        "saturated. Soft milky blacks that never go truly dark, fine grain, a "
+        "gentle bloom around the highlights, very slight flicker, with the "
+        "softness of old 8mm home-movie footage. " + NO_FILM_OBJECT
     ),
     # Ete clair et net : pastel mais lumineux, pas abime.
     "rohmer": (
-        "Static locked-off shot of an ancient olive tree beside a low stone wall, "
-        "clear soft daylight, a calm summer afternoon in the south of France. "
-        "Gentle wind through the canopy, leaves turning over slowly and catching "
-        "the light. Shot on early-1980s 35mm colour film: delicate pastel palette, "
-        "low saturation, soft natural contrast, airy and luminous. Pale blue sky, "
-        "dry silver-green foliage, warm pale stone, a few faded terracotta tones. "
-        "Fine grain, clean and unhurried, no artificial colour. "
-        "No people, no text, no titles, no camera movement, no cuts."
+        "An ancient olive tree beside a low stone wall on a terrace overlooking "
+        "the sea in the south of France, clear soft daylight, a calm summer "
+        "afternoon. " + SEA + " " + WIND +
+        " Delicate pastel palette, low saturation, soft natural contrast, airy "
+        "and luminous: pale blue sky, dry silver-green foliage, warm pale stone, "
+        "a few faded terracotta tones. Fine grain, clean and unhurried, no "
+        "artificial colour, nothing orange or sepia. " + NO_FILM_OBJECT
     ),
-    # Carte postale oubliee au soleil : couleurs viree et brulees.
+    # Couleurs brulees par le soleil, comme une image restee trop longtemps a la lumiere.
     "carte-postale": (
-        "Static locked-off shot of an ancient olive tree on a sunlit Mediterranean "
-        "hillside at midday, shimmering summer haze. Slow wind rolling through the "
-        "canopy in waves. The image looks like a colour postcard left in a shop "
-        "window for thirty years: sun-bleached and faded, cyan-shifted pale sky, "
-        "washed-out greens, soft pink and ochre in the stone, highlights blown out "
-        "to creamy white, blacks lifted and never truly dark. Heavy summer light, "
-        "soft focus falloff at the edges, fine grain, faint scratches. "
-        "No people, no text, no titles, no camera movement, no cuts."
+        "An ancient olive tree on a sunlit Mediterranean hillside at midday, "
+        "shimmering summer haze. " + SEA + " " + WIND +
+        " The colour is sun-bleached and faded, as though the film itself had "
+        "been left in the light for thirty years: cyan-shifted pale sky, "
+        "washed-out greens, soft pink and ochre in the stone, highlights blown "
+        "out to creamy white, blacks lifted and never truly dark. Heavy summer "
+        "light, soft focus falloff towards the edges, fine grain, faint "
+        "scratches. " + NO_FILM_OBJECT
     ),
 }
 DEFAULT_LOOK = "super8"
